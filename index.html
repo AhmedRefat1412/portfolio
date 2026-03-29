@@ -22,7 +22,6 @@
     /* =========================================================
        1) ROOT VARIABLES
        كل الألوان الأساسية والأحجام المهمة هنا
-       لو عاوز تغيّر الستايل كله بسرعة عدّل من هنا
     ========================================================== */
     :root {
       --bg: #040812;
@@ -38,16 +37,12 @@
       --success: #18f98f;
       --shadow: 0 20px 70px rgba(0, 0, 0, 0.35);
       --container: 1180px;
-      --radius-lg: 24px;
-      --radius-md: 18px;
-      --radius-sm: 14px;
       --nav-height: 78px;
       --grid-color: rgba(0, 231, 212, 0.05);
     }
 
     /* =========================================================
        2) LIGHT MODE COLORS
-       الوضع الفاتح
     ========================================================== */
     body.light-mode {
       --bg: #f5f9ff;
@@ -67,7 +62,6 @@
 
     /* =========================================================
        3) RESET
-       تهيئة أساسية للعناصر
     ========================================================== */
     * {
       box-sizing: border-box;
@@ -107,9 +101,7 @@
       list-style: none;
     }
 
-    button,
-    input,
-    textarea {
+    button {
       font: inherit;
     }
 
@@ -161,7 +153,6 @@
 
     /* =========================================================
        4) HEADER / NAVBAR
-       الهيدر العلوي الثابت
     ========================================================== */
     .header {
       position: sticky;
@@ -181,7 +172,6 @@
       gap: 20px;
     }
 
-    /* اسم الموقع أعلى الشمال */
     .brand {
       font-weight: 800;
       letter-spacing: 0.12em;
@@ -190,7 +180,6 @@
       text-transform: uppercase;
     }
 
-    /* روابط الناف بار */
     .nav-links {
       display: flex;
       align-items: center;
@@ -221,14 +210,12 @@
       background: var(--accent);
     }
 
-    /* المنطقة اليمين فوق: Open to work + toggle */
     .nav-actions {
       display: flex;
       align-items: center;
       gap: 14px;
     }
 
-    /* شارة Open to work */
     .status-pill {
       display: inline-flex;
       align-items: center;
@@ -243,7 +230,6 @@
       letter-spacing: 0.08em;
     }
 
-    /* النقطة الخضراء اللي بتنور وتطفي */
     .status-dot {
       width: 9px;
       height: 9px;
@@ -259,7 +245,6 @@
       100% { box-shadow: 0 0 0 0 rgba(24, 249, 143, 0); }
     }
 
-    /* زرار الدارك/لايت مود */
     .theme-toggle-wrap {
       display: flex;
       align-items: center;
@@ -297,7 +282,6 @@
       transform: translateX(27px);
     }
 
-    /* زرار موبايل */
     .menu-btn {
       display: none;
       background: transparent;
@@ -309,7 +293,6 @@
 
     /* =========================================================
        5) HERO SECTION
-       أول سكشن في الصفحة
     ========================================================== */
     .hero {
       padding: 90px 0 70px;
@@ -334,7 +317,6 @@
       color: var(--accent);
     }
 
-    /* الاسم الكبير */
     .hero-name {
       font-size: clamp(58px, 10vw, 126px);
       line-height: 0.9;
@@ -348,7 +330,6 @@
       display: block;
     }
 
-    /* سطر التخصص المتحرك */
     .hero-role {
       font-size: 30px;
       color: var(--muted);
@@ -375,7 +356,6 @@
       flex-wrap: wrap;
     }
 
-    /* الأزرار الأساسية */
     .btn {
       display: inline-flex;
       align-items: center;
@@ -414,18 +394,18 @@
       transform: translateY(-2px);
     }
 
-    /* صورة البروفايل يمين */
     .hero-photo-wrap {
       display: flex;
       justify-content: center;
       align-items: center;
     }
 
+    /* صغرت الصورة هنا */
     .hero-photo {
-      width: min(360px, 80vw);
+      width: min(300px, 68vw);
       aspect-ratio: 1 / 1;
       border-radius: 50%;
-      padding: 10px;
+      padding: 8px;
       border: 3px solid rgba(0, 231, 212, 0.3);
       box-shadow: 0 0 0 8px rgba(0, 231, 212, 0.05), 0 0 40px rgba(0, 231, 212, 0.12);
       background: radial-gradient(circle at center, rgba(0, 231, 212, 0.08), transparent 68%);
@@ -453,14 +433,6 @@
       color: var(--muted);
       font-size: 18px;
       line-height: 2;
-    }
-
-    .about-extra {
-      margin-top: 20px;
-      color: var(--accent);
-      text-transform: uppercase;
-      letter-spacing: 0.18em;
-      font-size: 14px;
     }
 
     .stats-grid {
@@ -531,7 +503,6 @@
 
     /* =========================================================
        8) PROJECTS SECTION
-       ده أهم جزء عندك، فمركزين عليه أكتر
     ========================================================== */
     .projects-grid {
       display: grid;
@@ -554,7 +525,6 @@
       border-color: var(--line);
     }
 
-    /* صورة المشروع */
     .project-image-wrap {
       aspect-ratio: 16 / 10;
       background: linear-gradient(135deg, rgba(0, 231, 212, 0.08), rgba(0, 191, 255, 0.08));
@@ -635,14 +605,25 @@
       text-decoration: underline;
     }
 
+    /* خليتها زرار GitHub بدل Live */
     .project-status {
-      border: 1px solid rgba(24, 249, 143, 0.25);
-      color: var(--success);
-      padding: 6px 10px;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      border: 1px solid rgba(0, 231, 212, 0.25);
+      color: var(--accent);
+      padding: 8px 12px;
       border-radius: 999px;
       font-size: 12px;
       text-transform: uppercase;
       letter-spacing: 0.1em;
+      background: rgba(0, 231, 212, 0.06);
+      transition: 0.25s ease;
+    }
+
+    .project-status:hover {
+      background: rgba(0, 231, 212, 0.12);
+      border-color: var(--accent);
     }
 
     /* =========================================================
@@ -751,7 +732,7 @@
     ========================================================== */
     .contact-grid {
       display: grid;
-      grid-template-columns: 0.95fr 1.05fr;
+      grid-template-columns: 1fr;
       gap: 30px;
       align-items: start;
     }
@@ -759,12 +740,13 @@
     .contact-info {
       display: grid;
       gap: 14px;
+      max-width: 760px;
     }
 
     .contact-box {
       background: var(--panel);
       border: 1px solid var(--line-soft);
-      padding: 20px 22px;
+      padding: 18px 20px;
       box-shadow: var(--shadow);
       color: var(--muted);
     }
@@ -772,45 +754,43 @@
     .contact-box strong {
       display: block;
       color: var(--text);
-      margin-bottom: 6px;
+      margin-bottom: 4px;
       font-size: 16px;
     }
 
-    .contact-form {
-      display: grid;
-      gap: 16px;
+    /* شكل ألطف للأيقونات */
+    .contact-box-icon {
+      display: flex;
+      align-items: center;
+      gap: 14px;
+      transition: 0.25s ease;
     }
 
-    .form-group {
-      display: grid;
-      gap: 8px;
+    .contact-box-icon:hover {
+      transform: translateY(-3px);
+      border-color: var(--line);
     }
 
-    .form-group label {
+    .contact-icon {
+      width: 44px;
+      height: 44px;
+      min-width: 44px;
+      border-radius: 50%;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      background: rgba(0, 231, 212, 0.08);
+      border: 1px solid var(--line);
+      color: var(--accent);
+      font-weight: 700;
+      font-size: 16px;
+    }
+
+    .contact-content span {
+      display: block;
       color: var(--muted);
-      text-transform: uppercase;
-      letter-spacing: 0.14em;
-      font-size: 12px;
-    }
-
-    .form-control {
-      width: 100%;
-      border: 1px solid var(--line-soft);
-      background: var(--panel);
-      color: var(--text);
-      padding: 16px 18px;
-      outline: none;
-      transition: 0.2s ease;
-    }
-
-    .form-control:focus {
-      border-color: var(--accent);
-      box-shadow: 0 0 0 4px rgba(0, 231, 212, 0.08);
-    }
-
-    textarea.form-control {
-      min-height: 150px;
-      resize: vertical;
+      font-size: 15px;
+      word-break: break-word;
     }
 
     /* =========================================================
@@ -836,7 +816,6 @@
 
     /* =========================================================
        13) FADE ANIMATION
-       أنيميشن بسيط عند النزول لأسفل الصفحة
     ========================================================== */
     .fade-up {
       opacity: 0;
@@ -851,12 +830,10 @@
 
     /* =========================================================
        14) RESPONSIVE
-       تنظيم الموبايل والتابلت
     ========================================================== */
     @media (max-width: 1100px) {
       .hero-grid,
       .about-grid,
-      .contact-grid,
       .projects-grid,
       .cert-grid {
         grid-template-columns: 1fr;
@@ -936,15 +913,12 @@
 
   <!-- =========================================================
        HEADER / NAVBAR
-       عدّل النصوص واللينكات من هنا
   ========================================================== -->
   <header class="header">
     <div class="container nav">
 
-      <!-- اسم البراند أو اللوجو النصي -->
       <a href="#home" class="brand">Refat.DEV</a>
 
-      <!-- روابط التنقل الرئيسية -->
       <nav class="nav-links" id="navLinks">
         <a href="#about">About</a>
         <a href="#skills">Skills</a>
@@ -954,23 +928,18 @@
         <a href="#contact">Contact</a>
       </nav>
 
-      <!-- الجزء اليمين فوق -->
       <div class="nav-actions">
-
-        <!-- Open to work -->
         <div class="status-pill">
           <span class="status-dot"></span>
           <span>Open to work</span>
         </div>
 
-        <!-- زرار الدارك مود -->
         <div class="theme-toggle-wrap">
           <span id="themeLabel">Dark</span>
           <button class="theme-toggle" id="themeToggle" aria-label="Toggle theme"></button>
         </div>
       </div>
 
-      <!-- زرار الموبايل -->
       <button class="menu-btn" id="menuBtn" aria-label="Open Menu">☰</button>
     </div>
   </header>
@@ -979,7 +948,6 @@
 
     <!-- =========================================================
          HERO SECTION
-         عدّل الاسم، الوظيفة، النبذة، الصورة، والأزرار من هنا
     ========================================================== -->
     <section class="hero" id="home">
       <div class="container hero-grid">
@@ -987,40 +955,33 @@
         <div class="hero-copy fade-up">
           <small>Data Engineer — Cairo, Egypt</small>
 
-          <!-- الاسم الكبير -->
           <h1 class="hero-name">
             Ahmed
             <span>Refat</span>
           </h1>
 
-          <!-- التخصص المتحرك -->
           <div class="hero-role">
             <span class="typed-text" id="typedText">Data Engineer</span>
           </div>
 
-          <!-- نبذة مختصرة -->
           <p class="hero-text">
             Building scalable data pipelines and delivering actionable insights.
             Passionate about big data infrastructure, ETL architecture, and turning raw data into real business value.
           </p>
 
-          <!-- أزرار الهيرو -->
           <div class="hero-buttons">
             <a href="#contact" class="btn btn-primary">Get In Touch</a>
 
-            <!-- لينك الجيت هاب -->
+            <a href="https://www.linkedin.com/in/ahmedrefat1412/" target="_blank" class="btn btn-outline">LinkedIn</a>
+
             <a href="https://github.com/AhmedRefat1412" target="_blank" class="btn btn-outline">GitHub</a>
 
-            <!-- لينك الـ CV: حط لينك ملف الـ PDF هنا بعدين -->
-             <a href="Ahmed_Refat_CV.pdf" download class="btn btn-outline"> Download CV </a>
+            <a href="Ahmed_Refat_CV.pdf" download class="btn btn-outline">Download CV</a>
           </div>
-
         </div>
 
-        <!-- صورة البروفايل -->
         <div class="hero-photo-wrap fade-up">
           <div class="hero-photo">
-            <!-- حط صورتك هنا بدل الصورة الوهمية -->
             <img src="Ahmed.png" alt="Ahmed Refat Photo" />
           </div>
         </div>
@@ -1029,7 +990,6 @@
 
     <!-- =========================================================
          ABOUT SECTION
-         عدّل النبذة والإحصائيات من هنا
     ========================================================== -->
     <section class="section" id="about">
       <div class="container about-grid fade-up">
@@ -1041,13 +1001,9 @@
           <p class="about-text">
             I am Ahmed Refat, an aspiring Data Engineer with strong focus on building scalable and efficient data systems. I have hands-on experience designing data workflows using Python, SQL, PySpark, Airflow, and modern data tools. Through my projects, I work on ETL pipelines, streaming workflows, and analytics-ready data models that transform raw data into clear business insight.
           </p>
-
-          <!-- سطر إضافي زي GPA أو أي معلومة صغيرة -->
-         <!--<div class="about-extra">GPA 3.4</div> -->
         </div>
 
         <div class="stats-grid">
-          <!-- غيّر الأرقام دي براحتك -->
           <div class="stat-box">
             <div class="stat-number">1+</div>
             <div class="stat-label">Years Experience</div>
@@ -1073,7 +1029,6 @@
 
     <!-- =========================================================
          SKILLS SECTION
-         كل skill category تقدر تزود فيها براحتك
     ========================================================== -->
     <section class="section" id="skills">
       <div class="container fade-up">
@@ -1110,8 +1065,8 @@
               <span class="skill-tag">Python</span>
               <span class="skill-tag">SQL</span>
               <span class="skill-tag">PySpark</span>
-              <span class="skill-tag">Pandas</span>
-              <span class="skill-tag">Bash</span>
+              <span class="skill-tag">Java</span>
+              <span class="skill-tag">C#</span>
             </div>
           </div>
 
@@ -1130,9 +1085,9 @@
             <h3 class="skill-row-title">BI & Analytics</h3>
             <div class="skill-tags">
               <span class="skill-tag">Power BI</span>
-              <span class="skill-tag">Dashboarding</span>
+              <span class="skill-tag">Grafana</span>
               <span class="skill-tag">Reporting</span>
-              <span class="skill-tag">Business Analysis</span>
+              <span class="skill-tag">Dashboarding</span>
             </div>
           </div>
 
@@ -1142,28 +1097,15 @@
 
     <!-- =========================================================
          PROJECTS SECTION
-         أهم جزء عندك
-         لكل مشروع:
-         - صورة
-         - عنوان
-         - subtitle
-         - description
-         - tags
-         - github link
-         - live/demo status
     ========================================================== -->
     <section class="section" id="projects">
       <div class="container fade-up">
         <span class="section-label">Projects</span>
         <h2 class="section-title">Selected Work</h2>
-        <p class="section-text">ركز هنا على مشاريعك الحقيقية. كل كارت مشروع فيه صورة، وصف، التكنولوجيز، ولينك الجيت هاب.</p>
 
         <div class="projects-grid">
 
-          <!-- ================= PROJECT 1 ================= -->
           <article class="project-card">
-
-            <!-- صورة المشروع -->
             <div class="project-image-wrap">
               <img class="project-image" src="https://via.placeholder.com/900x560.png?text=Project+Image+1" alt="Project 1 Image">
             </div>
@@ -1186,14 +1128,12 @@
               </div>
 
               <div class="project-actions">
-                <!-- حط لينك الجيت هاب الحقيقي هنا -->
-                <a class="project-link" href="https://github.com/your-github-username/project-1" target="_blank">View on GitHub →</a>
-                <span class="project-status">Live</span>
+                <a class="project-link" href="https://github.com/your-github-username/project-1" target="_blank">Repository →</a>
+                <a class="project-status" href="https://github.com/your-github-username/project-1" target="_blank">GitHub</a>
               </div>
             </div>
           </article>
 
-          <!-- ================= PROJECT 2 ================= -->
           <article class="project-card">
             <div class="project-image-wrap">
               <img class="project-image" src="https://via.placeholder.com/900x560.png?text=Project+Image+2" alt="Project 2 Image">
@@ -1216,13 +1156,12 @@
               </div>
 
               <div class="project-actions">
-                <a class="project-link" href="https://github.com/your-github-username/project-2" target="_blank">View on GitHub →</a>
-                <span class="project-status">Live</span>
+                <a class="project-link" href="https://github.com/your-github-username/project-2" target="_blank">Repository →</a>
+                <a class="project-status" href="https://github.com/your-github-username/project-2" target="_blank">GitHub</a>
               </div>
             </div>
           </article>
 
-          <!-- ================= PROJECT 3 ================= -->
           <article class="project-card">
             <div class="project-image-wrap">
               <img class="project-image" src="https://via.placeholder.com/900x560.png?text=Project+Image+3" alt="Project 3 Image">
@@ -1245,8 +1184,8 @@
               </div>
 
               <div class="project-actions">
-                <a class="project-link" href="https://github.com/your-github-username/project-3" target="_blank">View on GitHub →</a>
-                <span class="project-status">Live</span>
+                <a class="project-link" href="https://github.com/your-github-username/project-3" target="_blank">Repository →</a>
+                <a class="project-status" href="https://github.com/your-github-username/project-3" target="_blank">GitHub</a>
               </div>
             </div>
           </article>
@@ -1257,7 +1196,6 @@
 
     <!-- =========================================================
          EXPERIENCE SECTION
-         عدّل كل Timeline item براحتك
     ========================================================== -->
     <section class="section" id="experience">
       <div class="container fade-up">
@@ -1305,7 +1243,6 @@
 
     <!-- =========================================================
          CERTIFICATIONS SECTION
-         كل كارت شهادة، وحط لينك التحقق لو موجود
     ========================================================== -->
     <section class="section" id="certifications">
       <div class="container fade-up">
@@ -1338,8 +1275,7 @@
 
     <!-- =========================================================
          CONTACT SECTION
-         اليسار بيانات التواصل
-         اليمين فورم وهمي شكلي فقط
+         شلت الفورم وخليت التواصل فقط
     ========================================================== -->
     <section class="section" id="contact">
       <div class="container fade-up">
@@ -1347,49 +1283,41 @@
         <h2 class="section-title">Let's Talk</h2>
 
         <div class="contact-grid">
-
-          <!-- بيانات التواصل -->
           <div class="contact-info">
-            <a class="contact-box" href="mailto:ahmedrefat1412@gmail.com">
-              <strong>Email</strong>
-              ahmedrefat1412@gmail.com
+
+            <a class="contact-box contact-box-icon" href="mailto:ahmedrefat1412@gmail.com">
+              <span class="contact-icon">✉</span>
+              <div class="contact-content">
+                <strong>Email</strong>
+                <span>ahmedrefat1412@gmail.com</span>
+              </div>
             </a>
 
-            <a class="contact-box" href="tel:+201020519935">
-              <strong>Phone</strong>
-              +20 102 051 9935
+            <a class="contact-box contact-box-icon" href="tel:+201020519935">
+              <span class="contact-icon">☎</span>
+              <div class="contact-content">
+                <strong>Phone</strong>
+                <span>+20 102 051 9935</span>
+              </div>
             </a>
 
-            <a class="contact-box" href="https://github.com/AhmedRefat1412" target="_blank">
-              <strong>GitHub</strong>
-              github.com/AhmedRefat1412
+            <a class="contact-box contact-box-icon" href="https://github.com/AhmedRefat1412" target="_blank">
+              <span class="contact-icon">⌘</span>
+              <div class="contact-content">
+                <strong>GitHub</strong>
+                <span>github.com/AhmedRefat1412</span>
+              </div>
             </a>
 
-            <a class="contact-box" href="https://www.linkedin.com/in/ahmedrefat1412/" target="_blank">
-              <strong>LinkedIn</strong>
-              linkedin.com/in/ahmedrefat1412
+            <a class="contact-box contact-box-icon" href="https://www.linkedin.com/in/ahmedrefat1412/" target="_blank">
+              <span class="contact-icon">in</span>
+              <div class="contact-content">
+                <strong>LinkedIn</strong>
+                <span>linkedin.com/in/ahmedrefat1412</span>
+              </div>
             </a>
+
           </div>
-
-          <!-- الفورم -->
-          <form class="contact-form" onsubmit="event.preventDefault(); alert('This is a demo form. Replace it later with Formspree or EmailJS.');">
-            <div class="form-group">
-              <label>Your Name</label>
-              <input class="form-control" type="text" placeholder="John Doe" />
-            </div>
-
-            <div class="form-group">
-              <label>Email Address</label>
-              <input class="form-control" type="email" placeholder="john@example.com" />
-            </div>
-
-            <div class="form-group">
-              <label>Message</label>
-              <textarea class="form-control" placeholder="Tell me about your project or opportunity..."></textarea>
-            </div>
-
-            <button class="btn btn-primary" type="submit">Send Message</button>
-          </form>
         </div>
       </div>
     </section>
@@ -1406,7 +1334,6 @@
   <script>
     /* =========================================================
        1) MOBILE MENU
-       فتح وقفل منيو الموبايل
     ========================================================== */
     const menuBtn = document.getElementById('menuBtn');
     const navLinks = document.getElementById('navLinks');
@@ -1415,14 +1342,12 @@
       navLinks.classList.toggle('open');
     });
 
-    // لما تضغط على لينك في الموبايل يقفل القائمة
     navLinks.querySelectorAll('a').forEach(link => {
       link.addEventListener('click', () => navLinks.classList.remove('open'));
     });
 
     /* =========================================================
        2) ACTIVE NAV LINK ON SCROLL
-       يحدد السكشن الحالي في الناف بار
     ========================================================== */
     const sections = document.querySelectorAll('main section[id]');
     const navAnchors = document.querySelectorAll('.nav-links a');
@@ -1449,7 +1374,6 @@
 
     /* =========================================================
        3) SCROLL ANIMATION
-       أنيميشن بسيط عند ظهور العناصر
     ========================================================== */
     const fadeItems = document.querySelectorAll('.fade-up');
 
@@ -1465,8 +1389,6 @@
 
     /* =========================================================
        4) TYPEWRITER EFFECT
-       الكلمات اللي تحت الاسم
-       عدّل الكلمات من المصفوفة دي
     ========================================================== */
     const typedText = document.getElementById('typedText');
 
@@ -1510,12 +1432,10 @@
 
     /* =========================================================
        5) THEME TOGGLE
-       الدارك مود / اللايت مود
     ========================================================== */
     const themeToggle = document.getElementById('themeToggle');
     const themeLabel = document.getElementById('themeLabel');
 
-    // لو فيه ثيم محفوظ قبل كده
     const savedTheme = localStorage.getItem('theme');
     if (savedTheme === 'light') {
       document.body.classList.add('light-mode');
