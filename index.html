@@ -3,26 +3,13 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-
-  <!-- =========================
-       PAGE TITLE
-       غيّر اسم الموقع من هنا
-  ========================== -->
   <title>Ahmed Refat | Data Engineer Portfolio</title>
 
-  <!-- =========================
-       GOOGLE FONT
-       تقدر تغيّر الخط من هنا لو حبيت
-  ========================== -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
 
   <style>
-    /* =========================================================
-       1) ROOT VARIABLES
-       كل الألوان الأساسية والأحجام المهمة هنا
-    ========================================================== */
     :root {
       --bg: #040812;
       --bg-2: #07101e;
@@ -41,9 +28,6 @@
       --grid-color: rgba(0, 231, 212, 0.05);
     }
 
-    /* =========================================================
-       2) LIGHT MODE COLORS
-    ========================================================== */
     body.light-mode {
       --bg: #f5f9ff;
       --bg-2: #eaf2ff;
@@ -60,9 +44,6 @@
       --grid-color: rgba(0, 183, 171, 0.05);
     }
 
-    /* =========================================================
-       3) RESET
-    ========================================================== */
     * {
       box-sizing: border-box;
       margin: 0;
@@ -103,6 +84,9 @@
 
     button {
       font: inherit;
+      border: none;
+      background: none;
+      cursor: pointer;
     }
 
     .container {
@@ -151,9 +135,6 @@
       max-width: 760px;
     }
 
-    /* =========================================================
-       4) HEADER / NAVBAR
-    ========================================================== */
     .header {
       position: sticky;
       top: 0;
@@ -262,7 +243,6 @@
       border: 1px solid var(--line);
       background: rgba(255, 255, 255, 0.04);
       position: relative;
-      cursor: pointer;
       transition: 0.3s ease;
     }
 
@@ -284,16 +264,10 @@
 
     .menu-btn {
       display: none;
-      background: transparent;
-      border: 0;
       color: var(--text);
       font-size: 28px;
-      cursor: pointer;
     }
 
-    /* =========================================================
-       5) HERO SECTION
-    ========================================================== */
     .hero {
       padding: 90px 0 70px;
       min-height: calc(100vh - var(--nav-height));
@@ -400,7 +374,6 @@
       align-items: center;
     }
 
-    /* صغرت الصورة هنا */
     .hero-photo {
       width: min(300px, 68vw);
       aspect-ratio: 1 / 1;
@@ -419,9 +392,6 @@
       border: 3px solid rgba(255,255,255,0.08);
     }
 
-    /* =========================================================
-       6) ABOUT SECTION
-    ========================================================== */
     .about-grid {
       display: grid;
       grid-template-columns: 1.2fr 0.8fr;
@@ -464,9 +434,6 @@
       font-size: 13px;
     }
 
-    /* =========================================================
-       7) SKILLS SECTION
-    ========================================================== */
     .skill-blocks {
       display: grid;
       gap: 30px;
@@ -501,9 +468,6 @@
       box-shadow: var(--shadow);
     }
 
-    /* =========================================================
-       8) PROJECTS SECTION
-    ========================================================== */
     .projects-grid {
       display: grid;
       grid-template-columns: repeat(3, 1fr);
@@ -514,7 +478,6 @@
     .project-card {
       background: var(--panel);
       border: 1px solid var(--line-soft);
-      padding: 0;
       overflow: hidden;
       box-shadow: var(--shadow);
       transition: transform 0.25s ease, border-color 0.25s ease;
@@ -525,17 +488,84 @@
       border-color: var(--line);
     }
 
-    .project-image-wrap {
+    /* slider */
+    .project-slider {
+      position: relative;
       aspect-ratio: 16 / 10;
-      background: linear-gradient(135deg, rgba(0, 231, 212, 0.08), rgba(0, 191, 255, 0.08));
-      border-bottom: 1px solid var(--line-soft);
       overflow: hidden;
+      border-bottom: 1px solid var(--line-soft);
+      background: linear-gradient(135deg, rgba(0, 231, 212, 0.08), rgba(0, 191, 255, 0.08));
+    }
+
+    .project-slides {
+      display: flex;
+      width: 100%;
+      height: 100%;
+      transition: transform 0.5s ease;
+    }
+
+    .project-slide {
+      min-width: 100%;
+      height: 100%;
     }
 
     .project-image {
       width: 100%;
       height: 100%;
       object-fit: cover;
+    }
+
+    .slider-btn {
+      position: absolute;
+      top: 50%;
+      transform: translateY(-50%);
+      width: 42px;
+      height: 42px;
+      border-radius: 50%;
+      background: rgba(4, 8, 18, 0.62);
+      border: 1px solid rgba(255,255,255,0.12);
+      color: white;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      z-index: 2;
+      font-size: 18px;
+      backdrop-filter: blur(8px);
+    }
+
+    .slider-btn:hover {
+      background: rgba(0, 231, 212, 0.18);
+    }
+
+    .slider-btn.prev {
+      left: 12px;
+    }
+
+    .slider-btn.next {
+      right: 12px;
+    }
+
+    .slider-dots {
+      position: absolute;
+      bottom: 12px;
+      left: 50%;
+      transform: translateX(-50%);
+      display: flex;
+      gap: 8px;
+      z-index: 2;
+    }
+
+    .slider-dot {
+      width: 9px;
+      height: 9px;
+      border-radius: 50%;
+      background: rgba(255,255,255,0.35);
+      border: 1px solid rgba(255,255,255,0.18);
+      cursor: pointer;
+    }
+
+    .slider-dot.active {
+      background: var(--accent);
     }
 
     .project-body {
@@ -593,19 +623,6 @@
       flex-wrap: wrap;
     }
 
-    .project-link {
-      color: var(--accent);
-      text-transform: uppercase;
-      letter-spacing: 0.14em;
-      font-size: 13px;
-      font-weight: 600;
-    }
-
-    .project-link:hover {
-      text-decoration: underline;
-    }
-
-    /* خليتها زرار GitHub بدل Live */
     .project-status {
       display: inline-flex;
       align-items: center;
@@ -626,9 +643,6 @@
       border-color: var(--accent);
     }
 
-    /* =========================================================
-       9) EXPERIENCE TIMELINE
-    ========================================================== */
     .timeline {
       position: relative;
       margin-top: 26px;
@@ -691,9 +705,6 @@
       font-size: 16px;
     }
 
-    /* =========================================================
-       10) CERTIFICATIONS
-    ========================================================== */
     .cert-grid {
       display: grid;
       grid-template-columns: repeat(3, 1fr);
@@ -727,9 +738,6 @@
       letter-spacing: 0.12em;
     }
 
-    /* =========================================================
-       11) CONTACT SECTION
-    ========================================================== */
     .contact-grid {
       display: grid;
       grid-template-columns: 1fr;
@@ -758,7 +766,6 @@
       font-size: 16px;
     }
 
-    /* شكل ألطف للأيقونات */
     .contact-box-icon {
       display: flex;
       align-items: center;
@@ -793,9 +800,6 @@
       word-break: break-word;
     }
 
-    /* =========================================================
-       12) FOOTER
-    ========================================================== */
     .footer {
       padding: 26px 0;
       border-top: 1px solid var(--line-soft);
@@ -814,9 +818,6 @@
       font-size: 12px;
     }
 
-    /* =========================================================
-       13) FADE ANIMATION
-    ========================================================== */
     .fade-up {
       opacity: 0;
       transform: translateY(24px);
@@ -828,9 +829,6 @@
       transform: translateY(0);
     }
 
-    /* =========================================================
-       14) RESPONSIVE
-    ========================================================== */
     @media (max-width: 1100px) {
       .hero-grid,
       .about-grid,
@@ -911,12 +909,8 @@
 </head>
 <body>
 
-  <!-- =========================================================
-       HEADER / NAVBAR
-  ========================================================== -->
   <header class="header">
     <div class="container nav">
-
       <a href="#home" class="brand">Refat.DEV</a>
 
       <nav class="nav-links" id="navLinks">
@@ -945,13 +939,8 @@
   </header>
 
   <main>
-
-    <!-- =========================================================
-         HERO SECTION
-    ========================================================== -->
     <section class="hero" id="home">
       <div class="container hero-grid">
-
         <div class="hero-copy fade-up">
           <small>Data Engineer — Cairo, Egypt</small>
 
@@ -971,11 +960,8 @@
 
           <div class="hero-buttons">
             <a href="#contact" class="btn btn-primary">Get In Touch</a>
-
             <a href="https://www.linkedin.com/in/ahmedrefat1412/" target="_blank" class="btn btn-outline">LinkedIn</a>
-
             <a href="https://github.com/AhmedRefat1412" target="_blank" class="btn btn-outline">GitHub</a>
-
             <a href="Ahmed_Refat_CV.pdf" download class="btn btn-outline">Download CV</a>
           </div>
         </div>
@@ -988,16 +974,11 @@
       </div>
     </section>
 
-    <!-- =========================================================
-         ABOUT SECTION
-    ========================================================== -->
     <section class="section" id="about">
       <div class="container about-grid fade-up">
-
         <div>
           <span class="section-label">About</span>
           <h2 class="section-title">Who I Am</h2>
-
           <p class="about-text">
             I am Ahmed Refat, an aspiring Data Engineer with strong focus on building scalable and efficient data systems. I have hands-on experience designing data workflows using Python, SQL, PySpark, Airflow, and modern data tools. Through my projects, I work on ETL pipelines, streaming workflows, and analytics-ready data models that transform raw data into clear business insight.
           </p>
@@ -1008,17 +989,14 @@
             <div class="stat-number">1+</div>
             <div class="stat-label">Years Experience</div>
           </div>
-
           <div class="stat-box">
             <div class="stat-number">4+</div>
             <div class="stat-label">Projects Built</div>
           </div>
-
           <div class="stat-box">
             <div class="stat-number">5+</div>
             <div class="stat-label">Certifications</div>
           </div>
-
           <div class="stat-box">
             <div class="stat-number">3</div>
             <div class="stat-label">Internships</div>
@@ -1027,16 +1005,12 @@
       </div>
     </section>
 
-    <!-- =========================================================
-         SKILLS SECTION
-    ========================================================== -->
     <section class="section" id="skills">
       <div class="container fade-up">
         <span class="section-label">Skills</span>
         <h2 class="section-title">Technical Stack</h2>
 
         <div class="skill-blocks">
-
           <div class="skill-row">
             <h3 class="skill-row-title">Data Engineering</h3>
             <div class="skill-tags">
@@ -1090,14 +1064,10 @@
               <span class="skill-tag">Dashboarding</span>
             </div>
           </div>
-
         </div>
       </div>
     </section>
 
-    <!-- =========================================================
-         PROJECTS SECTION
-    ========================================================== -->
     <section class="section" id="projects">
       <div class="container fade-up">
         <span class="section-label">Projects</span>
@@ -1105,9 +1075,20 @@
 
         <div class="projects-grid">
 
+          <!-- Project 1 -->
           <article class="project-card">
-            <div class="project-image-wrap">
-              <img class="project-image" src="https://via.placeholder.com/900x560.png?text=Project+Image+1" alt="Project 1 Image">
+            <div class="project-slider" data-slider>
+              <button class="slider-btn prev" type="button">&#10094;</button>
+
+              <div class="project-slides">
+                <div class="project-slide"><img class="project-image" src="project1-1.png" alt="Project 1 Architecture"></div>
+                <div class="project-slide"><img class="project-image" src="project1-2.png" alt="Project 1 Screenshot 2"></div>
+                <div class="project-slide"><img class="project-image" src="project1-3.png" alt="Project 1 Screenshot 3"></div>
+              </div>
+
+              <button class="slider-btn next" type="button">&#10095;</button>
+
+              <div class="slider-dots"></div>
             </div>
 
             <div class="project-body">
@@ -1128,15 +1109,25 @@
               </div>
 
               <div class="project-actions">
-                <a class="project-link" href="https://github.com/your-github-username/project-1" target="_blank">Repository →</a>
                 <a class="project-status" href="https://github.com/your-github-username/project-1" target="_blank">GitHub</a>
               </div>
             </div>
           </article>
 
+          <!-- Project 2 -->
           <article class="project-card">
-            <div class="project-image-wrap">
-              <img class="project-image" src="https://via.placeholder.com/900x560.png?text=Project+Image+2" alt="Project 2 Image">
+            <div class="project-slider" data-slider>
+              <button class="slider-btn prev" type="button">&#10094;</button>
+
+              <div class="project-slides">
+                <div class="project-slide"><img class="project-image" src="project2-1.png" alt="Project 2 Architecture"></div>
+                <div class="project-slide"><img class="project-image" src="project2-2.png" alt="Project 2 Screenshot 2"></div>
+                <div class="project-slide"><img class="project-image" src="project2-3.png" alt="Project 2 Screenshot 3"></div>
+              </div>
+
+              <button class="slider-btn next" type="button">&#10095;</button>
+
+              <div class="slider-dots"></div>
             </div>
 
             <div class="project-body">
@@ -1156,15 +1147,25 @@
               </div>
 
               <div class="project-actions">
-                <a class="project-link" href="https://github.com/your-github-username/project-2" target="_blank">Repository →</a>
                 <a class="project-status" href="https://github.com/your-github-username/project-2" target="_blank">GitHub</a>
               </div>
             </div>
           </article>
 
+          <!-- Project 3 -->
           <article class="project-card">
-            <div class="project-image-wrap">
-              <img class="project-image" src="https://via.placeholder.com/900x560.png?text=Project+Image+3" alt="Project 3 Image">
+            <div class="project-slider" data-slider>
+              <button class="slider-btn prev" type="button">&#10094;</button>
+
+              <div class="project-slides">
+                <div class="project-slide"><img class="project-image" src="project3-1.png" alt="Project 3 Architecture"></div>
+                <div class="project-slide"><img class="project-image" src="project3-2.png" alt="Project 3 Screenshot 2"></div>
+                <div class="project-slide"><img class="project-image" src="project3-3.png" alt="Project 3 Screenshot 3"></div>
+              </div>
+
+              <button class="slider-btn next" type="button">&#10095;</button>
+
+              <div class="slider-dots"></div>
             </div>
 
             <div class="project-body">
@@ -1184,7 +1185,6 @@
               </div>
 
               <div class="project-actions">
-                <a class="project-link" href="https://github.com/your-github-username/project-3" target="_blank">Repository →</a>
                 <a class="project-status" href="https://github.com/your-github-username/project-3" target="_blank">GitHub</a>
               </div>
             </div>
@@ -1194,16 +1194,12 @@
       </div>
     </section>
 
-    <!-- =========================================================
-         EXPERIENCE SECTION
-    ========================================================== -->
     <section class="section" id="experience">
       <div class="container fade-up">
         <span class="section-label">Experience</span>
         <h2 class="section-title">Work History</h2>
 
         <div class="timeline">
-
           <div class="timeline-item">
             <div class="timeline-date">Jun 2025 — Dec 2025</div>
             <h3 class="timeline-role">Power BI Specialist</h3>
@@ -1236,21 +1232,16 @@
               <li>Focused on practical pipeline thinking and analytics-ready outputs.</li>
             </ul>
           </div>
-
         </div>
       </div>
     </section>
 
-    <!-- =========================================================
-         CERTIFICATIONS SECTION
-    ========================================================== -->
     <section class="section" id="certifications">
       <div class="container fade-up">
         <span class="section-label">Certifications</span>
         <h2 class="section-title">Credentials</h2>
 
         <div class="cert-grid">
-
           <div class="cert-card">
             <h3 class="cert-title">Dummy Certification Name 1</h3>
             <div class="cert-meta">Provider Name — Jun 2025</div>
@@ -1268,15 +1259,10 @@
             <div class="cert-meta">Provider Name — Oct 2025</div>
             <a class="cert-link" href="#">Verify →</a>
           </div>
-
         </div>
       </div>
     </section>
 
-    <!-- =========================================================
-         CONTACT SECTION
-         شلت الفورم وخليت التواصل فقط
-    ========================================================== -->
     <section class="section" id="contact">
       <div class="container fade-up">
         <span class="section-label">Contact</span>
@@ -1323,18 +1309,12 @@
     </section>
   </main>
 
-  <!-- =========================================================
-       FOOTER
-  ========================================================== -->
   <div class="container footer">
     <p>Ahmed Refat © 2026 — Data Engineer</p>
     <a class="back-top" href="#home">Back to top ↑</a>
   </div>
 
   <script>
-    /* =========================================================
-       1) MOBILE MENU
-    ========================================================== */
     const menuBtn = document.getElementById('menuBtn');
     const navLinks = document.getElementById('navLinks');
 
@@ -1346,9 +1326,6 @@
       link.addEventListener('click', () => navLinks.classList.remove('open'));
     });
 
-    /* =========================================================
-       2) ACTIVE NAV LINK ON SCROLL
-    ========================================================== */
     const sections = document.querySelectorAll('main section[id]');
     const navAnchors = document.querySelectorAll('.nav-links a');
 
@@ -1372,9 +1349,6 @@
     window.addEventListener('scroll', setActiveLink);
     window.addEventListener('load', setActiveLink);
 
-    /* =========================================================
-       3) SCROLL ANIMATION
-    ========================================================== */
     const fadeItems = document.querySelectorAll('.fade-up');
 
     const fadeObserver = new IntersectionObserver((entries) => {
@@ -1387,11 +1361,7 @@
 
     fadeItems.forEach(item => fadeObserver.observe(item));
 
-    /* =========================================================
-       4) TYPEWRITER EFFECT
-    ========================================================== */
     const typedText = document.getElementById('typedText');
-
     const roles = [
       'Data Engineer',
       'ETL Developer',
@@ -1430,9 +1400,6 @@
 
     typeEffect();
 
-    /* =========================================================
-       5) THEME TOGGLE
-    ========================================================== */
     const themeToggle = document.getElementById('themeToggle');
     const themeLabel = document.getElementById('themeLabel');
 
@@ -1446,10 +1413,81 @@
 
     themeToggle.addEventListener('click', () => {
       document.body.classList.toggle('light-mode');
-
       const isLight = document.body.classList.contains('light-mode');
       themeLabel.textContent = isLight ? 'Light' : 'Dark';
       localStorage.setItem('theme', isLight ? 'light' : 'dark');
+    });
+
+    /* sliders */
+    const sliders = document.querySelectorAll('[data-slider]');
+
+    sliders.forEach((slider) => {
+      const slidesWrapper = slider.querySelector('.project-slides');
+      const slides = slider.querySelectorAll('.project-slide');
+      const prevBtn = slider.querySelector('.prev');
+      const nextBtn = slider.querySelector('.next');
+      const dotsContainer = slider.querySelector('.slider-dots');
+
+      let currentIndex = 0;
+      let interval;
+
+      slides.forEach((_, index) => {
+        const dot = document.createElement('button');
+        dot.classList.add('slider-dot');
+        if (index === 0) dot.classList.add('active');
+
+        dot.addEventListener('click', () => {
+          currentIndex = index;
+          updateSlider();
+          restartAutoSlide();
+        });
+
+        dotsContainer.appendChild(dot);
+      });
+
+      const dots = dotsContainer.querySelectorAll('.slider-dot');
+
+      function updateSlider() {
+        slidesWrapper.style.transform = `translateX(-${currentIndex * 100}%)`;
+        dots.forEach((dot, index) => {
+          dot.classList.toggle('active', index === currentIndex);
+        });
+      }
+
+      function nextSlide() {
+        currentIndex = (currentIndex + 1) % slides.length;
+        updateSlider();
+      }
+
+      function prevSlide() {
+        currentIndex = (currentIndex - 1 + slides.length) % slides.length;
+        updateSlider();
+      }
+
+      function startAutoSlide() {
+        interval = setInterval(nextSlide, 3000);
+      }
+
+      function restartAutoSlide() {
+        clearInterval(interval);
+        startAutoSlide();
+      }
+
+      nextBtn.addEventListener('click', () => {
+        nextSlide();
+        restartAutoSlide();
+      });
+
+      prevBtn.addEventListener('click', () => {
+        prevSlide();
+        restartAutoSlide();
+      });
+
+      slider.addEventListener('mouseenter', () => clearInterval(interval));
+      slider.addEventListener('mouseleave', startAutoSlide);
+
+      updateSlider();
+      startAutoSlide();
     });
   </script>
 </body>
