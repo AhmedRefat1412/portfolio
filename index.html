@@ -176,10 +176,10 @@
 
     .brand {
       font-weight: 800;
-      letter-spacing: 0.12em;
-      font-size: 20px;
+      letter-spacing: 0.02em;
+      font-size: 22px;
       color: var(--text);
-      text-transform: uppercase;
+      text-transform: none;
     }
 
     .brand span {
@@ -235,6 +235,7 @@
       color: var(--success);
       text-transform: uppercase;
       letter-spacing: 0.08em;
+      width: fit-content;
     }
 
     .status-dot {
@@ -244,6 +245,7 @@
       background: var(--success);
       box-shadow: 0 0 0 0 rgba(97, 242, 177, 0.6);
       animation: pulse 1.6s infinite;
+      flex-shrink: 0;
     }
 
     @keyframes pulse {
@@ -297,6 +299,7 @@
       display: none;
       color: var(--text);
       font-size: 28px;
+      line-height: 1;
     }
 
     .mobile-extras {
@@ -480,7 +483,7 @@
 
     .stats-grid {
       display: grid;
-      grid-template-columns: 1fr 1fr;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
       gap: 14px;
     }
 
@@ -586,13 +589,12 @@
 
     .projects-grid {
       display: grid;
-      grid-template-columns: repeat(2, minmax(0, 1fr));
-      gap: 26px;
+      grid-template-columns: 1fr;
+      gap: 28px;
       margin-top: 34px;
-    }
-
-    .projects-grid .project-card:first-child {
-      grid-column: 1 / -1;
+      max-width: 920px;
+      margin-left: auto;
+      margin-right: auto;
     }
 
     .project-card {
@@ -613,7 +615,7 @@
 
     .project-slider {
       position: relative;
-      aspect-ratio: 16 / 11;
+      aspect-ratio: 16 / 9.4;
       overflow: hidden;
       border-bottom: 1px solid var(--line-soft);
       background: linear-gradient(135deg, rgba(67, 211, 255, 0.10), rgba(124, 245, 216, 0.06));
@@ -1006,11 +1008,7 @@
       }
 
       .projects-grid {
-        grid-template-columns: 1fr;
-      }
-
-      .projects-grid .project-card:first-child {
-        grid-column: auto;
+        max-width: 100%;
       }
     }
 
@@ -1028,6 +1026,7 @@
         align-items: flex-start;
         border-radius: 20px;
         box-shadow: var(--shadow);
+        gap: 16px;
       }
 
       .nav-links.open {
@@ -1043,16 +1042,20 @@
       }
 
       .mobile-extras {
-        display: grid;
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
         gap: 14px;
         width: 100%;
-        margin-top: 10px;
+        margin-top: 6px;
         padding-top: 14px;
         border-top: 1px solid var(--line-soft);
       }
 
       .theme-toggle-wrap-mobile {
+        display: flex;
         justify-content: space-between;
+        align-items: center;
         width: 100%;
       }
 
@@ -1081,7 +1084,21 @@
       }
 
       .stats-grid {
-        grid-template-columns: 1fr;
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+      }
+
+      .stat-box {
+        min-height: 105px;
+        padding: 20px;
+      }
+
+      .stat-number {
+        font-size: 38px;
+      }
+
+      .stat-label {
+        font-size: 11px;
+        line-height: 1.4;
       }
 
       .timeline-role {
@@ -1092,6 +1109,10 @@
       .cert-title,
       .education-degree {
         font-size: 22px;
+      }
+
+      .project-slider {
+        aspect-ratio: 16 / 10.5;
       }
 
       .footer {
@@ -1105,7 +1126,7 @@
 
   <header class="header">
     <div class="container nav">
-      <a href="#home" class="brand">Refat<span>.DEV</span></a>
+      <a href="#home" class="brand">Ahmed <span>Refat</span></a>
 
       <nav class="nav-links" id="navLinks">
         <a href="#about">About</a>
@@ -1700,15 +1721,19 @@
     const savedTheme = localStorage.getItem('theme') || 'dark';
     applyTheme(savedTheme);
 
-    themeToggle.addEventListener('click', () => {
-      const isLight = document.body.classList.contains('light-mode');
-      applyTheme(isLight ? 'dark' : 'light');
-    });
+    if (themeToggle) {
+      themeToggle.addEventListener('click', () => {
+        const isLight = document.body.classList.contains('light-mode');
+        applyTheme(isLight ? 'dark' : 'light');
+      });
+    }
 
-    themeToggleMobile.addEventListener('click', () => {
-      const isLight = document.body.classList.contains('light-mode');
-      applyTheme(isLight ? 'dark' : 'light');
-    });
+    if (themeToggleMobile) {
+      themeToggleMobile.addEventListener('click', () => {
+        const isLight = document.body.classList.contains('light-mode');
+        applyTheme(isLight ? 'dark' : 'light');
+      });
+    }
 
     const sliders = document.querySelectorAll('[data-slider]');
 
