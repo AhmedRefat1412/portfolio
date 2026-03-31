@@ -26,6 +26,10 @@
       --container: 1180px;
       --nav-height: 78px;
       --grid-color: rgba(0, 231, 212, 0.05);
+
+      --repo-bg: rgba(0, 231, 212, 0.14);
+      --repo-bg-hover: rgba(0, 231, 212, 0.22);
+      --repo-border: rgba(0, 231, 212, 0.26);
     }
 
     body.light-mode {
@@ -42,6 +46,10 @@
       --success: #11bf66;
       --shadow: 0 20px 70px rgba(13, 33, 67, 0.08);
       --grid-color: rgba(0, 183, 171, 0.05);
+
+      --repo-bg: rgba(0, 183, 171, 0.12);
+      --repo-bg-hover: rgba(0, 183, 171, 0.18);
+      --repo-border: rgba(0, 183, 171, 0.22);
     }
 
     * {
@@ -66,6 +74,7 @@
       background-size: 44px 44px, 44px 44px, auto, auto, auto;
       min-height: 100vh;
       transition: background 0.3s ease, color 0.3s ease;
+      overflow-x: hidden;
     }
 
     a {
@@ -92,6 +101,8 @@
     .container {
       width: min(calc(100% - 32px), var(--container));
       margin: 0 auto;
+      position: relative;
+      z-index: 2;
     }
 
     .section {
@@ -269,10 +280,12 @@
     }
 
     .hero {
-      padding: 90px 0 70px;
+      padding: 140px 0 90px;
       min-height: calc(100vh - var(--nav-height));
       display: flex;
       align-items: center;
+      position: relative;
+      overflow: hidden;
     }
 
     .hero-grid {
@@ -280,6 +293,13 @@
       grid-template-columns: 1.1fr 0.9fr;
       gap: 40px;
       align-items: center;
+      position: relative;
+      z-index: 2;
+    }
+
+    .hero-copy {
+      position: relative;
+      z-index: 3;
     }
 
     .hero-copy small {
@@ -297,6 +317,8 @@
       letter-spacing: -0.06em;
       margin-bottom: 18px;
       font-weight: 800;
+      position: relative;
+      z-index: 2;
     }
 
     .hero-name span {
@@ -372,6 +394,8 @@
       display: flex;
       justify-content: center;
       align-items: center;
+      position: relative;
+      z-index: 3;
     }
 
     .hero-photo {
@@ -382,6 +406,8 @@
       border: 3px solid rgba(0, 231, 212, 0.3);
       box-shadow: 0 0 0 8px rgba(0, 231, 212, 0.05), 0 0 40px rgba(0, 231, 212, 0.12);
       background: radial-gradient(circle at center, rgba(0, 231, 212, 0.08), transparent 68%);
+      position: relative;
+      z-index: 2;
     }
 
     .hero-photo img {
@@ -468,6 +494,46 @@
       box-shadow: var(--shadow);
     }
 
+    .education-card {
+      background: var(--panel);
+      border: 1px solid var(--line-soft);
+      padding: 34px;
+      box-shadow: var(--shadow);
+      margin-top: 30px;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .education-card::before {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 6px;
+      height: 100%;
+      background: linear-gradient(180deg, var(--accent), rgba(0, 191, 255, 0.5));
+    }
+
+    .education-degree {
+      font-size: 30px;
+      line-height: 1.2;
+      margin-bottom: 14px;
+      padding-left: 18px;
+    }
+
+    .education-university,
+    .education-date {
+      color: var(--muted);
+      font-size: 18px;
+      line-height: 1.9;
+      padding-left: 18px;
+    }
+
+    .education-date strong {
+      color: var(--text);
+      font-weight: 600;
+    }
+
     .projects-grid {
       display: grid;
       grid-template-columns: repeat(3, 1fr);
@@ -488,7 +554,6 @@
       border-color: var(--line);
     }
 
-    /* slider */
     .project-slider {
       position: relative;
       aspect-ratio: 16 / 10;
@@ -627,20 +692,37 @@
       display: inline-flex;
       align-items: center;
       justify-content: center;
-      border: 1px solid rgba(0, 231, 212, 0.25);
-      color: var(--accent);
-      padding: 8px 12px;
-      border-radius: 999px;
-      font-size: 12px;
+      gap: 10px;
+      border: 1px solid var(--repo-border);
+      color: var(--text);
+      padding: 11px 16px;
+      font-size: 13px;
       text-transform: uppercase;
-      letter-spacing: 0.1em;
-      background: rgba(0, 231, 212, 0.06);
+      letter-spacing: 0.08em;
+      background: var(--repo-bg);
       transition: 0.25s ease;
+      font-weight: 600;
     }
 
     .project-status:hover {
-      background: rgba(0, 231, 212, 0.12);
+      background: var(--repo-bg-hover);
       border-color: var(--accent);
+      transform: translateY(-2px);
+    }
+
+    .project-status svg {
+      width: 18px;
+      height: 18px;
+      flex-shrink: 0;
+    }
+
+    .project-status .repo-arrow {
+      font-size: 15px;
+      transition: transform 0.25s ease;
+    }
+
+    .project-status:hover .repo-arrow {
+      transform: translateX(3px);
     }
 
     .timeline {
@@ -865,7 +947,7 @@
       }
 
       .hero {
-        padding-top: 50px;
+        padding-top: 110px;
       }
 
       .hero-name {
@@ -876,6 +958,10 @@
     @media (max-width: 640px) {
       .section {
         padding: 80px 0;
+      }
+
+      .hero {
+        padding-top: 100px;
       }
 
       .hero-buttons {
@@ -896,7 +982,8 @@
       }
 
       .project-title,
-      .cert-title {
+      .cert-title,
+      .education-degree {
         font-size: 22px;
       }
 
@@ -916,6 +1003,7 @@
       <nav class="nav-links" id="navLinks">
         <a href="#about">About</a>
         <a href="#skills">Skills</a>
+        <a href="#education">Education</a>
         <a href="#projects">Projects</a>
         <a href="#experience">Experience</a>
         <a href="#certifications">Certs</a>
@@ -1068,6 +1156,21 @@
       </div>
     </section>
 
+    <section class="section" id="education">
+      <div class="container fade-up">
+        <span class="section-label">Education</span>
+        <h2 class="section-title">Academic Background</h2>
+
+        <div class="education-card">
+          <h3 class="education-degree">Bachelor of Computer Science and Information Systems</h3>
+          <p class="education-university">
+            Kafr El-Sheikh University, Faculty of Computers and Information – Information Systems Department
+          </p>
+          <p class="education-date"><strong>Graduation:</strong> May 2023</p>
+        </div>
+      </div>
+    </section>
+
     <section class="section" id="projects">
       <div class="container fade-up">
         <span class="section-label">Projects</span>
@@ -1083,8 +1186,8 @@
               <div class="project-slides">
                 <div class="project-slide"><img class="project-image" src="nyc _traffic articture.png" alt="Project 1 articture"></div>
                 <div class="project-slide"><img class="project-image" src="nyc _traffic Dashbord.png" alt="Project 1 Dashbord"></div>
-                <div class="project-slide"><img class="project-image" src="nyc _traffic DAG Run.png" alt="Project 1 DAG Run "></div>
-                <div class="project-slide"><img class="project-image" src="nyc _traffic data warehouse.png" alt="Project 1 data warehouse "></div>
+                <div class="project-slide"><img class="project-image" src="nyc _traffic DAG Run.png" alt="Project 1 DAG Run"></div>
+                <div class="project-slide"><img class="project-image" src="nyc _traffic data warehouse.jpeg" alt="Project 1 data warehouse"></div>
               </div>
 
               <button class="slider-btn next" type="button">&#10095;</button>
@@ -1094,29 +1197,35 @@
 
             <div class="project-body">
               <div class="project-index">01</div>
-              <h3 class="project-title"> NYC Smart Traffic Pipeline</h3>
+              <h3 class="project-title">NYC Smart Traffic Pipeline</h3>
               <div class="project-subtitle">End-to-End Batch & Streaming Data Pipeline</div>
 
               <p class="project-text">
                 This project implements a scalable data engineering platform that processes both
-historical and real-time traffic-related data to analyze road incidents, weather impact,
-and urban mobility patterns.
+                historical and real-time traffic-related data to analyze road incidents, weather impact,
+                and urban mobility patterns.
               </p>
 
               <div class="project-tags">
-              <span>Kafka</span>
+                <span>Kafka</span>
                 <span>Snowflake</span>
-                <span>s3</span>
-                <span>Power Bi</span>
+                <span>S3</span>
+                <span>Power BI</span>
                 <span>Grafana</span>
-                <span>Airflow</span>            
+                <span>Airflow</span>
                 <span>PySpark</span>
                 <span>Structured Streaming</span>
                 <span>Docker</span>
               </div>
 
               <div class="project-actions">
-                <a class="project-status" href="https://github.com/AhmedRefat1412/NYC-Smart_Traffic_pipline" target="_blank">Repository</a>
+                <a class="project-status" href="https://github.com/AhmedRefat1412/NYC-Smart_Traffic_pipline" target="_blank">
+                  <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+                    <path d="M12 .5C5.65.5.5 5.65.5 12a11.5 11.5 0 0 0 7.86 10.92c.58.11.79-.25.79-.56 0-.28-.01-1.2-.02-2.18-3.2.7-3.88-1.36-3.88-1.36-.52-1.32-1.28-1.67-1.28-1.67-1.04-.71.08-.7.08-.7 1.15.08 1.76 1.18 1.76 1.18 1.02 1.75 2.68 1.24 3.33.95.1-.74.4-1.24.72-1.52-2.55-.29-5.24-1.27-5.24-5.68 0-1.26.45-2.3 1.18-3.11-.12-.29-.51-1.48.11-3.08 0 0 .97-.31 3.17 1.19a10.95 10.95 0 0 1 5.77 0c2.2-1.5 3.17-1.19 3.17-1.19.62 1.6.23 2.79.11 3.08.74.81 1.18 1.85 1.18 3.11 0 4.42-2.69 5.38-5.26 5.67.41.36.78 1.07.78 2.15 0 1.56-.01 2.81-.01 3.19 0 .31.21.68.8.56A11.5 11.5 0 0 0 23.5 12C23.5 5.65 18.35.5 12 .5Z"/>
+                  </svg>
+                  <span>View Repository</span>
+                  <span class="repo-arrow">→</span>
+                </a>
               </div>
             </div>
           </article>
@@ -1138,31 +1247,36 @@ and urban mobility patterns.
             <div class="project-body">
               <div class="project-index">02</div>
               <h3 class="project-title">Flight & Airline Analytics Pipeline</h3>
-              <div class="project-subtitle"> Batch & Real-Time Data Processing</div>
+              <div class="project-subtitle">Batch & Real-Time Data Processing</div>
 
               <p class="project-text">
                 This project aims to design and implement a scalable data platform for flight and airline analytics
-using both batch and real-time (streaming) processing.
-The platform focuses on analyzing aviation operations across major New York airports (JFK, LGA,
-EWR), integrating multiple data sources including flight data, airline data, delays, and weather
-condition
+                using both batch and real-time (streaming) processing.
+                The platform focuses on analyzing aviation operations across major New York airports (JFK, LGA,
+                EWR), integrating multiple data sources including flight data, airline data, delays, and weather
+                condition.
               </p>
 
               <div class="project-tags">
                 <span>Kafka</span>
                 <span>Snowflake</span>
-                <span>s3</span>
-                <span>Power Bi</span>
+                <span>S3</span>
+                <span>Power BI</span>
                 <span>Grafana</span>
-                <span>Airflow</span>            
+                <span>Airflow</span>
                 <span>PySpark</span>
                 <span>Structured Streaming</span>
                 <span>Docker</span>
               </div>
 
               <div class="project-actions">
-                <a class="project-status" href="https://github.com/AhmedRefat1412/Flight-Airline-Analytics-Platform" target="_blank">Repository</a>
-
+                <a class="project-status" href="https://github.com/AhmedRefat1412/Flight-Airline-Analytics-Platform" target="_blank">
+                  <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+                    <path d="M12 .5C5.65.5.5 5.65.5 12a11.5 11.5 0 0 0 7.86 10.92c.58.11.79-.25.79-.56 0-.28-.01-1.2-.02-2.18-3.2.7-3.88-1.36-3.88-1.36-.52-1.32-1.28-1.67-1.28-1.67-1.04-.71.08-.7.08-.7 1.15.08 1.76 1.18 1.76 1.18 1.02 1.75 2.68 1.24 3.33.95.1-.74.4-1.24.72-1.52-2.55-.29-5.24-1.27-5.24-5.68 0-1.26.45-2.3 1.18-3.11-.12-.29-.51-1.48.11-3.08 0 0 .97-.31 3.17 1.19a10.95 10.95 0 0 1 5.77 0c2.2-1.5 3.17-1.19 3.17-1.19.62 1.6.23 2.79.11 3.08.74.81 1.18 1.85 1.18 3.11 0 4.42-2.69 5.38-5.26 5.67.41.36.78 1.07.78 2.15 0 1.56-.01 2.81-.01 3.19 0 .31.21.68.8.56A11.5 11.5 0 0 0 23.5 12C23.5 5.65 18.35.5 12 .5Z"/>
+                  </svg>
+                  <span>View Repository</span>
+                  <span class="repo-arrow">→</span>
+                </a>
               </div>
             </div>
           </article>
@@ -1173,8 +1287,8 @@ condition
               <button class="slider-btn prev" type="button">&#10094;</button>
 
               <div class="project-slides">
-                <div class="project-slide"><img class="project-image" src="E-commerce Articture.png" alt="Project 3 Architecture"></div> 
-                <div class="project-slide"><img class="project-image" src="E-commerce dashbord.jpg" alt="Project 3 dashbord"></div> 
+                <div class="project-slide"><img class="project-image" src="E-commerce Articture.png" alt="Project 3 Architecture"></div>
+                <div class="project-slide"><img class="project-image" src="E-commerce dashbord.jpg" alt="Project 3 dashbord"></div>
                 <div class="project-slide"><img class="project-image" src="E-commerce Data Warehouse.png" alt="Project 3 Data Warehouse"></div>
                 <div class="project-slide"><img class="project-image" src="E-commerce DAG-Run.png" alt="Project 3 DAG-Run"></div>
               </div>
@@ -1187,28 +1301,31 @@ condition
             <div class="project-body">
               <div class="project-index">03</div>
               <h3 class="project-title">E-commerce Data Engineering Pipeline</h3>
-              <div class="project-subtitle">end-to-end Batch pipeline</div>
+              <div class="project-subtitle">End-to-End Batch Pipeline</div>
 
               <p class="project-text">
                 Pipeline is an end-to-end system that extracts data from MongoDB and CSV files, processes it using Airflow and PySpark, and stores it in PostgreSQL using a Star Schema.
 
- It implements a complete ETL workflow (Extract, Transform, Load) and runs in a Dockerized environment for scalability and easy deployment.
+                It implements a complete ETL workflow (Extract, Transform, Load) and runs in a Dockerized environment for scalability and easy deployment.
               </p>
 
               <div class="project-tags">
                 <span>MongoDB</span>
-                <span>pyspark</span>
+                <span>PySpark</span>
                 <span>PostgreSQL</span>
                 <span>Power BI</span>
                 <span>Airflow</span>
                 <span>Docker</span>
-
-
               </div>
 
               <div class="project-actions">
-                <a class="project-status" href="https://github.com/AhmedRefat1412/ecommerce-data-pipeline" target="_blank">Repository</a>
-
+                <a class="project-status" href="https://github.com/AhmedRefat1412/ecommerce-data-pipeline" target="_blank">
+                  <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+                    <path d="M12 .5C5.65.5.5 5.65.5 12a11.5 11.5 0 0 0 7.86 10.92c.58.11.79-.25.79-.56 0-.28-.01-1.2-.02-2.18-3.2.7-3.88-1.36-3.88-1.36-.52-1.32-1.28-1.67-1.28-1.67-1.04-.71.08-.7.08-.7 1.15.08 1.76 1.18 1.76 1.18 1.02 1.75 2.68 1.24 3.33.95.1-.74.4-1.24.72-1.52-2.55-.29-5.24-1.27-5.24-5.68 0-1.26.45-2.3 1.18-3.11-.12-.29-.51-1.48.11-3.08 0 0 .97-.31 3.17 1.19a10.95 10.95 0 0 1 5.77 0c2.2-1.5 3.17-1.19 3.17-1.19.62 1.6.23 2.79.11 3.08.74.81 1.18 1.85 1.18 3.11 0 4.42-2.69 5.38-5.26 5.67.41.36.78 1.07.78 2.15 0 1.56-.01 2.81-.01 3.19 0 .31.21.68.8.56A11.5 11.5 0 0 0 23.5 12C23.5 5.65 18.35.5 12 .5Z"/>
+                  </svg>
+                  <span>View Repository</span>
+                  <span class="repo-arrow">→</span>
+                </a>
               </div>
             </div>
           </article>
@@ -1220,39 +1337,33 @@ condition
     <section class="section" id="experience">
       <div class="container fade-up">
         <span class="section-label">Experience</span>
-        <h2 class="section-title">Work History</h2>
+        <h2 class="section-title">Experience & Training</h2>
 
+          <!-- التدريب الاول -->
         <div class="timeline">
           <div class="timeline-item">
-            <div class="timeline-date">Jun 2025 — Dec 2025</div>
-            <h3 class="timeline-role">Power BI Specialist</h3>
-            <div class="timeline-company">Dummy Company Name — Remote</div>
+            <div class="timeline-date">Nov 2025 — present</div>
+            <h3 class="timeline-role"> Microsoft Data Engineer Trainee</h3>
+            <div class="timeline-company">Digital Egypt Pioneers Initiative (DEPI)</div>
             <ul class="timeline-list">
-              <li>Collected, cleaned, and modeled data from multiple sources for reporting and dashboards.</li>
-              <li>Designed interactive BI dashboards to support data-driven decisions.</li>
-              <li>Applied data governance and visualization best practices in business reporting.</li>
+              <li> Gained hands-on experience building data pipelines using Python and SQL.</li>
+              <li> Worked on data modeling, ETL concepts, and cloud-based data platforms.</li>
+              <li> Contributed to designing scalable data workflows and improving data processing efficiency.</li>
             </ul>
           </div>
 
-          <div class="timeline-item">
-            <div class="timeline-date">Aug 2024 — Sep 2024</div>
-            <h3 class="timeline-role">Big Data Trainee</h3>
-            <div class="timeline-company">Dummy Training Provider — Hybrid</div>
-            <ul class="timeline-list">
-              <li>Worked with Docker-based environments and large-scale processing concepts.</li>
-              <li>Applied Spark and data warehousing ideas on structured data workflows.</li>
-              <li>Built ETL-style flows and handled relational and document data systems.</li>
-            </ul>
-          </div>
 
+          
+          
+          <!-- التدريب الثاني  -->
           <div class="timeline-item">
-            <div class="timeline-date">Jun 2024 — Sep 2024</div>
-            <h3 class="timeline-role">Data Engineer Trainee</h3>
-            <div class="timeline-company">Dummy Organization Name — Hybrid</div>
+            <div class="timeline-date">Jan 2026 - Mar 2026</div>
+            <h3 class="timeline-role">Cloud Services Management & Operations Trainee</h3>
+            <div class="timeline-company">National Telecommunication Institute (NTI)</div>
             <ul class="timeline-list">
-              <li>Built data workflows and improved understanding of warehousing architecture.</li>
-              <li>Worked with SQL, transformation logic, and dimensional modeling concepts.</li>
-              <li>Focused on practical pipeline thinking and analytics-ready outputs.</li>
+              <li> Learned cloud fundamentals, networking basics, and cloud service operations.</li>
+              <li> Practiced deploying and managing services on AWS and Linux environments.</li>
+              <li>Strengthened skills in system administration, troubleshooting, and cloud infrastructure monitoring.</li>
             </ul>
           </div>
         </div>
@@ -1264,24 +1375,37 @@ condition
         <span class="section-label">Certifications</span>
         <h2 class="section-title">Credentials</h2>
 
+                  <!-- الشهاده 1 -->
         <div class="cert-grid">
           <div class="cert-card">
-            <h3 class="cert-title">Dummy Certification Name 1</h3>
-            <div class="cert-meta">Provider Name — Jun 2025</div>
-            <a class="cert-link" href="#">Verify →</a>
+            <h3 class="cert-title">Cloud Services Management and Operation</h3>
+            <div class="cert-meta">National Telecommunication Institute (NTI) — mar 2026</div>
+            <a class="cert-link" href="https://drive.google.com/file/d/1iEqizv1-QSj5R-ksJLrGRIT5jGwY9wFa/view?usp=sharing">Verify →</a>
           </div>
 
+                   <!-- الشهاده 2 -->
           <div class="cert-card">
-            <h3 class="cert-title">Dummy Certification Name 2</h3>
-            <div class="cert-meta">Provider Name — May 2025</div>
-            <a class="cert-link" href="#">Verify →</a>
+            <h3 class="cert-title">Linux Command Line & Docker</h3>
+            <div class="cert-meta">Udemy — Jan 2026</div>
+            <a class="cert-link" href="https://udemy-certificate.s3.amazonaws.com/pdf/UC-789ca620-1ef6-4291-97fc-ddb95f99db78.pdf">Verify →</a>
           </div>
 
+                   <!-- الشهاده 3 -->
+
           <div class="cert-card">
-            <h3 class="cert-title">Dummy Certification Name 3</h3>
-            <div class="cert-meta">Provider Name — Oct 2025</div>
-            <a class="cert-link" href="#">Verify →</a>
+            <h3 class="cert-title">Analyzing and Visualizing Data with Microsoft Power BI</h3>
+            <div class="cert-meta">Udemy — Dec 2025</div>
+            <a class="cert-link" href="https://www.udemy.com/certificate/UC-3f4b9f96-8d3e-45af-ae3b-5420f0807ba9/">Verify →</a>
           </div>
+
+                   <!-- الشهاده 4 -->
+
+          <div class="cert-card">
+            <h3 class="cert-title">Introduction to MongoDB</h3>
+            <div class="cert-meta">MongoDB — Sep 2025</div>
+            <a class="cert-link" href="https://learn.mongodb.com/c/BbD7fSBcStyhhSrH0J6W6g">Verify →</a>
+          </div>
+
         </div>
       </div>
     </section>
@@ -1441,7 +1565,6 @@ condition
       localStorage.setItem('theme', isLight ? 'light' : 'dark');
     });
 
-    /* sliders */
     const sliders = document.querySelectorAll('[data-slider]');
 
     sliders.forEach((slider) => {
@@ -1496,6 +1619,11 @@ condition
         startAutoSlide();
       }
 
+      if (slides.length <= 1) {
+        prevBtn.style.display = 'none';
+        nextBtn.style.display = 'none';
+      }
+
       nextBtn.addEventListener('click', () => {
         nextSlide();
         restartAutoSlide();
@@ -1507,10 +1635,12 @@ condition
       });
 
       slider.addEventListener('mouseenter', () => clearInterval(interval));
-      slider.addEventListener('mouseleave', startAutoSlide);
+      slider.addEventListener('mouseleave', () => {
+        if (slides.length > 1) startAutoSlide();
+      });
 
       updateSlider();
-      startAutoSlide();
+      if (slides.length > 1) startAutoSlide();
     });
   </script>
 </body>
