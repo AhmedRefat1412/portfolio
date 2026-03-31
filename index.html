@@ -597,13 +597,14 @@
       margin-right: auto;
     }
 
+    /* تم تعديل كروت المشاريع هنا */
     .project-card {
       background: var(--panel);
       border: 1px solid var(--line-soft);
       overflow: hidden;
       box-shadow: var(--shadow);
       transition: transform 0.25s ease, border-color 0.25s ease;
-      border-radius: 28px;
+      border-radius: 0;
       backdrop-filter: blur(16px);
       min-height: 100%;
     }
@@ -884,10 +885,19 @@
       font-size: 15px;
     }
 
+    /* تم تعديل جزء الشهادات هنا */
+    .cert-footer {
+      display: flex;
+      justify-content: flex-end;
+      align-items: center;
+      width: 100%;
+    }
+
     .cert-link {
       display: inline-flex;
       align-items: center;
       justify-content: center;
+      gap: 8px;
       padding: 12px 18px;
       border-radius: 999px;
       background: linear-gradient(135deg, var(--accent), var(--accent-2));
@@ -905,6 +915,11 @@
     .cert-link:hover {
       transform: translateY(-2px);
       box-shadow: 0 12px 24px rgba(67, 211, 255, 0.18);
+    }
+
+    .cert-link .verify-arrow {
+      font-size: 16px;
+      line-height: 1;
     }
 
     .contact-grid {
@@ -1539,7 +1554,12 @@
               <h3 class="cert-title">Cloud Services Management and Operation</h3>
               <div class="cert-meta">National Telecommunication Institute (NTI) — Mar 2026</div>
             </div>
-            <a class="cert-link" href="https://drive.google.com/file/d/1iEqizv1-QSj5R-ksJLrGRIT5jGwY9wFa/view?usp=sharing" target="_blank">Verify</a>
+            <div class="cert-footer">
+              <a class="cert-link" href="https://drive.google.com/file/d/1iEqizv1-QSj5R-ksJLrGRIT5jGwY9wFa/view?usp=sharing" target="_blank">
+                <span>Verify</span>
+                <span class="verify-arrow">↗</span>
+              </a>
+            </div>
           </div>
 
           <div class="cert-card">
@@ -1547,7 +1567,12 @@
               <h3 class="cert-title">Linux Command Line & Docker</h3>
               <div class="cert-meta">Udemy — Jan 2026</div>
             </div>
-            <a class="cert-link" href="https://udemy-certificate.s3.amazonaws.com/pdf/UC-789ca620-1ef6-4291-97fc-ddb95f99db78.pdf" target="_blank">Verify</a>
+            <div class="cert-footer">
+              <a class="cert-link" href="https://udemy-certificate.s3.amazonaws.com/pdf/UC-789ca620-1ef6-4291-97fc-ddb95f99db78.pdf" target="_blank">
+                <span>Verify</span>
+                <span class="verify-arrow">↗</span>
+              </a>
+            </div>
           </div>
 
           <div class="cert-card">
@@ -1555,7 +1580,12 @@
               <h3 class="cert-title">Analyzing and Visualizing Data with Microsoft Power BI</h3>
               <div class="cert-meta">Udemy — Dec 2025</div>
             </div>
-            <a class="cert-link" href="https://www.udemy.com/certificate/UC-3f4b9f96-8d3e-45af-ae3b-5420f0807ba9/" target="_blank">Verify</a>
+            <div class="cert-footer">
+              <a class="cert-link" href="https://www.udemy.com/certificate/UC-3f4b9f96-8d3e-45af-ae3b-5420f0807ba9/" target="_blank">
+                <span>Verify</span>
+                <span class="verify-arrow">↗</span>
+              </a>
+            </div>
           </div>
 
           <div class="cert-card">
@@ -1563,7 +1593,12 @@
               <h3 class="cert-title">Introduction to MongoDB</h3>
               <div class="cert-meta">MongoDB — Sep 2025</div>
             </div>
-            <a class="cert-link" href="https://learn.mongodb.com/c/BbD7fSBcStyhhSrH0J6W6g" target="_blank">Verify</a>
+            <div class="cert-footer">
+              <a class="cert-link" href="https://learn.mongodb.com/c/BbD7fSBcStyhhSrH0J6W6g" target="_blank">
+                <span>Verify</span>
+                <span class="verify-arrow">↗</span>
+              </a>
+            </div>
           </div>
         </div>
       </div>
