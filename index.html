@@ -3,13 +3,19 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <!-- عنوان الصفحة -->
   <title>Ahmed Refat | Data Engineer Portfolio</title>
 
+  <!-- استدعاء الخط -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
 
   <style>
+    /* =========================================================
+       متغيرات الألوان الأساسية للموقع
+    ========================================================= */
     :root {
       --bg: #05070b;
       --bg-2: #090d14;
@@ -28,6 +34,9 @@
       --nav-height: 82px;
     }
 
+    /* =========================================================
+       ألوان الـ Light Mode
+    ========================================================= */
     body.light-mode {
       --bg: #f4f8fc;
       --bg-2: #eaf2fb;
@@ -44,6 +53,7 @@
       --shadow: 0 22px 60px rgba(18, 42, 82, 0.08);
     }
 
+    /* Reset بسيط */
     * {
       box-sizing: border-box;
       margin: 0;
@@ -54,6 +64,9 @@
       scroll-behavior: smooth;
     }
 
+    /* =========================================================
+       ستايل البودي والخلفية العامة
+    ========================================================= */
     body {
       font-family: "Outfit", sans-serif;
       color: var(--text);
@@ -67,6 +80,7 @@
       transition: background 0.3s ease, color 0.3s ease;
     }
 
+    /* شبكة خفيفة فوق الخلفية */
     body::before {
       content: "";
       position: fixed;
@@ -101,6 +115,7 @@
       cursor: pointer;
     }
 
+    /* الكونتينر العام */
     .container {
       width: min(calc(100% - 32px), var(--container));
       margin: 0 auto;
@@ -108,11 +123,13 @@
       z-index: 2;
     }
 
+    /* كل Section */
     .section {
       padding: 110px 0;
       position: relative;
     }
 
+    /* عنوان صغير فوق كل سيكشن */
     .section-label {
       display: inline-flex;
       align-items: center;
@@ -132,6 +149,7 @@
       background: linear-gradient(90deg, transparent, var(--accent));
     }
 
+    /* عنوان السيكشن الرئيسي */
     .section-title {
       font-size: clamp(34px, 5vw, 64px);
       line-height: 0.96;
@@ -147,6 +165,7 @@
       max-width: 780px;
     }
 
+    /* Glass effect */
     .glass {
       background: var(--panel);
       border: 1px solid var(--line-soft);
@@ -155,6 +174,9 @@
       -webkit-backdrop-filter: blur(16px);
     }
 
+    /* =========================================================
+       الهيدر والناف بار
+    ========================================================= */
     .header {
       position: sticky;
       top: 0;
@@ -223,6 +245,7 @@
       gap: 14px;
     }
 
+    /* حالة Open to Work */
     .status-pill {
       display: inline-flex;
       align-items: center;
@@ -254,6 +277,7 @@
       100% { box-shadow: 0 0 0 0 rgba(97, 242, 177, 0); }
     }
 
+    /* أزرار تغيير الثيم */
     .theme-toggle-wrap,
     .theme-toggle-wrap-mobile {
       display: flex;
@@ -306,6 +330,9 @@
       display: none;
     }
 
+    /* =========================================================
+       Hero Section
+    ========================================================= */
     .hero {
       min-height: calc(100vh - var(--nav-height));
       display: flex;
@@ -428,6 +455,7 @@
       flex-wrap: wrap;
     }
 
+    /* أزرار عامة */
     .btn {
       display: inline-flex;
       align-items: center;
@@ -474,6 +502,9 @@
       border-color: rgba(67, 211, 255, 0.26);
     }
 
+    /* =========================================================
+       About + Stats
+    ========================================================= */
     .about-grid {
       display: grid;
       grid-template-columns: 1.15fr 0.85fr;
@@ -512,6 +543,9 @@
       font-size: 12px;
     }
 
+    /* =========================================================
+       Skills
+    ========================================================= */
     .skill-blocks {
       display: grid;
       gap: 20px;
@@ -549,6 +583,9 @@
       border-radius: 999px;
     }
 
+    /* =========================================================
+       Education
+    ========================================================= */
     .education-card {
       background: var(--panel);
       border: 1px solid var(--line-soft);
@@ -587,6 +624,9 @@
       font-weight: 600;
     }
 
+    /* =========================================================
+       Projects
+    ========================================================= */
     .projects-grid {
       display: grid;
       grid-template-columns: 1fr;
@@ -597,7 +637,6 @@
       margin-right: auto;
     }
 
-    /* تم تعديل كروت المشاريع هنا */
     .project-card {
       background: var(--panel);
       border: 1px solid var(--line-soft);
@@ -788,6 +827,9 @@
       transform: translateX(3px);
     }
 
+    /* =========================================================
+       Experience Timeline
+    ========================================================= */
     .timeline {
       position: relative;
       margin-top: 30px;
@@ -855,6 +897,9 @@
       font-size: 16px;
     }
 
+    /* =========================================================
+       Certifications
+    ========================================================= */
     .cert-grid {
       display: grid;
       grid-template-columns: repeat(2, 1fr);
@@ -885,43 +930,88 @@
       font-size: 15px;
     }
 
-    /* تم تعديل جزء الشهادات هنا */
     .cert-footer {
       display: flex;
       justify-content: flex-end;
       align-items: center;
       width: 100%;
+      margin-top: 8px;
     }
 
+    /* اللينك اللي بيغلف صورة الشهادة */
     .cert-link {
       display: inline-flex;
       align-items: center;
       justify-content: center;
-      gap: 8px;
-      padding: 12px 18px;
-      border-radius: 999px;
-      background: linear-gradient(135deg, var(--accent), var(--accent-2));
-      color: #041017;
-      font-size: 13px;
-      text-transform: uppercase;
-      letter-spacing: 0.12em;
-      font-weight: 700;
-      border: 1px solid transparent;
       transition: 0.25s ease;
-      margin-top: 6px;
-      width: fit-content;
+      border-radius: 18px;
     }
 
     .cert-link:hover {
-      transform: translateY(-2px);
-      box-shadow: 0 12px 24px rgba(67, 211, 255, 0.18);
+      transform: translateY(-3px);
     }
 
-    .cert-link .verify-arrow {
-      font-size: 16px;
+    /* صورة الشهادة */
+    .cert-thumbnail {
+      width: 132px;
+      height: 92px;
+      position: relative;
+      border-radius: 16px;
+      overflow: hidden;
+      border: 1px solid rgba(67, 211, 255, 0.22);
+      background: rgba(255,255,255,0.04);
+      box-shadow: 0 12px 26px rgba(0, 0, 0, 0.22);
+    }
+
+    .cert-thumbnail img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+    }
+
+    .cert-thumbnail::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background:
+        linear-gradient(180deg, rgba(255,255,255,0.06), transparent 55%),
+        linear-gradient(0deg, rgba(0,0,0,0.10), transparent 45%);
+      pointer-events: none;
+      z-index: 1;
+    }
+
+    /* السهم المايل فوق صورة الشهادة */
+    .cert-link-arrow {
+      position: absolute;
+      right: 8px;
+      bottom: 8px;
+      width: 30px;
+      height: 30px;
+      border-radius: 50%;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      background: rgba(4, 16, 23, 0.88);
+      color: #ffffff;
+      font-size: 15px;
       line-height: 1;
+      transform: rotate(-18deg);
+      border: 1px solid rgba(255,255,255,0.16);
+      box-shadow: 0 6px 16px rgba(0, 0, 0, 0.24);
+      z-index: 2;
+      transition: 0.25s ease;
     }
 
+    .cert-link:hover .cert-link-arrow {
+      transform: rotate(-18deg) scale(1.08);
+      background: linear-gradient(135deg, var(--accent), var(--accent-2));
+      color: #041017;
+    }
+
+    /* =========================================================
+       Contact
+    ========================================================= */
     .contact-grid {
       display: grid;
       grid-template-columns: 1fr;
@@ -986,6 +1076,9 @@
       word-break: break-word;
     }
 
+    /* =========================================================
+       Footer
+    ========================================================= */
     .footer {
       padding: 28px 0 34px;
       border-top: 1px solid var(--line-soft);
@@ -1005,6 +1098,7 @@
       font-weight: 600;
     }
 
+    /* أنيميشن الظهور */
     .fade-up {
       opacity: 0;
       transform: translateY(24px);
@@ -1016,6 +1110,9 @@
       transform: translateY(0);
     }
 
+    /* =========================================================
+       Responsive
+    ========================================================= */
     @media (max-width: 1100px) {
       .about-grid,
       .cert-grid {
@@ -1134,11 +1231,20 @@
         flex-direction: column;
         align-items: flex-start;
       }
+
+      /* نصغر صورة الشهادة سنة في الموبايل */
+      .cert-thumbnail {
+        width: 118px;
+        height: 82px;
+      }
     }
   </style>
 </head>
 <body>
 
+  <!-- =======================================================
+       Header
+  ======================================================== -->
   <header class="header">
     <div class="container nav">
       <a href="#home" class="brand">Ahmed <span>Refat</span></a>
@@ -1182,13 +1288,16 @@
   </header>
 
   <main>
+    <!-- =====================================================
+         Hero
+    ====================================================== -->
     <section class="hero" id="home">
       <div class="container">
         <div class="hero-shell fade-up">
           <div class="hero-card glass">
             <div class="hero-photo-wrap">
               <div class="hero-photo">
-                <img src="Ahmed.png" alt="Ahmed Refat Photo" />
+                <img src="Ahmed1.png" alt="Ahmed Refat Photo" />
               </div>
             </div>
 
@@ -1248,6 +1357,9 @@
       </div>
     </section>
 
+    <!-- =====================================================
+         About
+    ====================================================== -->
     <section class="section" id="about">
       <div class="container about-grid fade-up">
         <div>
@@ -1281,6 +1393,9 @@
       </div>
     </section>
 
+    <!-- =====================================================
+         Skills
+    ====================================================== -->
     <section class="section" id="skills">
       <div class="container fade-up">
         <span class="section-label">Skills</span>
@@ -1293,6 +1408,7 @@
               <span class="skill-tag">Apache Spark</span>
               <span class="skill-tag">Apache Airflow</span>
               <span class="skill-tag">Apache Kafka</span>
+              <span class="skill-tag">dbt</span>
               <span class="skill-tag">ETL Pipelines</span>
               <span class="skill-tag">Data Warehousing</span>
             </div>
@@ -1321,9 +1437,15 @@
           </div>
 
           <div class="skill-row">
-            <h3 class="skill-row-title">Cloud & Tools</h3>
+            <h3 class="skill-row-title">Cloud & DevOps</h3>
             <div class="skill-tags">
               <span class="skill-tag">AWS</span>
+              <span class="skill-tag">EC2</span>
+              <span class="skill-tag">S3</span>
+              <span class="skill-tag">Redshift</span>
+              <span class="skill-tag">Glue</span>
+              <span class="skill-tag">IAM</span>
+              <span class="skill-tag">RDS</span>
               <span class="skill-tag">Snowflake</span>
               <span class="skill-tag">Docker</span>
               <span class="skill-tag">Git / GitHub</span>
@@ -1344,6 +1466,9 @@
       </div>
     </section>
 
+    <!-- =====================================================
+         Education
+    ====================================================== -->
     <section class="section" id="education">
       <div class="container fade-up">
         <span class="section-label">Education</span>
@@ -1359,6 +1484,9 @@
       </div>
     </section>
 
+    <!-- =====================================================
+         Projects
+    ====================================================== -->
     <section class="section" id="projects">
       <div class="container fade-up">
         <span class="section-label">Projects</span>
@@ -1512,6 +1640,9 @@
       </div>
     </section>
 
+    <!-- =====================================================
+         Experience
+    ====================================================== -->
     <section class="section" id="experience">
       <div class="container fade-up">
         <span class="section-label">Experience</span>
@@ -1543,67 +1674,155 @@
       </div>
     </section>
 
+    <!-- =====================================================
+         Certifications
+    ====================================================== -->
     <section class="section" id="certifications">
       <div class="container fade-up">
         <span class="section-label">Certifications</span>
         <h2 class="section-title">Credentials</h2>
 
         <div class="cert-grid">
+
+          <!-- الشهادة 1 — تم إصلاح الـ div المكرر هنا -->
           <div class="cert-card">
             <div>
               <h3 class="cert-title">Cloud Services Management and Operation</h3>
               <div class="cert-meta">National Telecommunication Institute (NTI) — Mar 2026</div>
             </div>
             <div class="cert-footer">
-              <a class="cert-link" href="https://drive.google.com/file/d/1iEqizv1-QSj5R-ksJLrGRIT5jGwY9wFa/view?usp=sharing" target="_blank">
-                <span>Verify</span>
-                <span class="verify-arrow">↗</span>
+              <a class="cert-link"
+                 href="https://drive.google.com/file/d/1iEqizv1-QSj5R-ksJLrGRIT5jGwY9wFa/view?usp=sharing"
+                 target="_blank"
+                 aria-label="Open certificate">
+                <div class="cert-thumbnail">
+                  <img
+                    src="cert/NTI.jpg"
+                    alt="Cloud Services Management and Operation Certificate"
+                  />
+                  <span class="cert-link-arrow">↗</span>
+                </div>
               </a>
             </div>
           </div>
 
+          <!-- الشهادة 2 -->
           <div class="cert-card">
             <div>
               <h3 class="cert-title">Linux Command Line & Docker</h3>
               <div class="cert-meta">Udemy — Jan 2026</div>
             </div>
             <div class="cert-footer">
-              <a class="cert-link" href="https://udemy-certificate.s3.amazonaws.com/pdf/UC-789ca620-1ef6-4291-97fc-ddb95f99db78.pdf" target="_blank">
-                <span>Verify</span>
-                <span class="verify-arrow">↗</span>
+              <a class="cert-link"
+                 href="https://udemy-certificate.s3.amazonaws.com/pdf/UC-789ca620-1ef6-4291-97fc-ddb95f99db78.pdf"
+                 target="_blank"
+                 aria-label="Open certificate">
+                <div class="cert-thumbnail">
+                  <img
+                    src="cert/linux.jpg"
+                    alt="Linux Command Line and Docker Certificate"
+                  />
+                  <span class="cert-link-arrow">↗</span>
+                </div>
               </a>
             </div>
           </div>
 
+          <!-- الشهادة 3 -->
           <div class="cert-card">
             <div>
               <h3 class="cert-title">Analyzing and Visualizing Data with Microsoft Power BI</h3>
               <div class="cert-meta">Udemy — Dec 2025</div>
             </div>
             <div class="cert-footer">
-              <a class="cert-link" href="https://www.udemy.com/certificate/UC-3f4b9f96-8d3e-45af-ae3b-5420f0807ba9/" target="_blank">
-                <span>Verify</span>
-                <span class="verify-arrow">↗</span>
+              <a class="cert-link"
+                 href="https://www.udemy.com/certificate/UC-3f4b9f96-8d3e-45af-ae3b-5420f0807ba9/"
+                 target="_blank"
+                 aria-label="Open certificate">
+                <div class="cert-thumbnail">
+                  <img
+                    src="cert/power_bi.jpg"
+                    alt="Power BI Certificate"
+                  />
+                  <span class="cert-link-arrow">↗</span>
+                </div>
               </a>
             </div>
           </div>
 
+          <!-- الشهادة 4 -->
           <div class="cert-card">
             <div>
               <h3 class="cert-title">Introduction to MongoDB</h3>
               <div class="cert-meta">MongoDB — Sep 2025</div>
             </div>
             <div class="cert-footer">
-              <a class="cert-link" href="https://learn.mongodb.com/c/BbD7fSBcStyhhSrH0J6W6g" target="_blank">
-                <span>Verify</span>
-                <span class="verify-arrow">↗</span>
+              <a class="cert-link"
+                 href="https://learn.mongodb.com/c/BbD7fSBcStyhhSrH0J6W6g"
+                 target="_blank"
+                 aria-label="Open certificate">
+                <div class="cert-thumbnail">
+                  <img
+                    src="cert/mongodb.jpg"
+                    alt="MongoDB Certificate"
+                  />
+                  <span class="cert-link-arrow">↗</span>
+                </div>
               </a>
             </div>
           </div>
+
+          <!-- الشهادة 5 -->
+          <div class="cert-card">
+            <div>
+              <h3 class="cert-title">AWS Certified Solutions Architect</h3>
+              <div class="cert-meta">AWS — Apr 2026</div>
+            </div>
+            <div class="cert-footer">
+              <a class="cert-link"
+                 href="https://www.credly.com/badges/d93f127a-0956-4fd9-be26-3b7a5c7e1155"
+                 target="_blank"
+                 aria-label="Open certificate">
+                <div class="cert-thumbnail">
+                  <img
+                    src="cert/AWS_Architecting.jpg"
+                    alt="AWS Solutions Certificate"
+                  />
+                  <span class="cert-link-arrow">↗</span>
+                </div>
+              </a>
+            </div>
+          </div>
+
+          <!-- الشهادة 6 -->
+          <div class="cert-card">
+            <div>
+              <h3 class="cert-title">AWS Cloud Foundations</h3>
+              <div class="cert-meta">AWS — Apr 2026</div>
+            </div>
+            <div class="cert-footer">
+              <a class="cert-link"
+                 href="https://www.credly.com/badges/d93f127a-0956-4fd9-be26-3b7a5c7e1155"
+                 target="_blank"
+                 aria-label="Open certificate">
+                <div class="cert-thumbnail">
+                  <img
+                    src="cert/AWS_Foundations.jpg"
+                    alt="AWS Foundations Certificate"
+                  />
+                  <span class="cert-link-arrow">↗</span>
+                </div>
+              </a>
+            </div>
+          </div>
+
         </div>
       </div>
     </section>
 
+    <!-- =====================================================
+         Contact
+    ====================================================== -->
     <section class="section" id="contact">
       <div class="container fade-up">
         <span class="section-label">Contact</span>
@@ -1650,12 +1869,18 @@
     </section>
   </main>
 
+  <!-- =======================================================
+       Footer
+  ======================================================== -->
   <div class="container footer">
     <p>Ahmed Refat © 2026 — Data Engineer</p>
     <a class="back-top" href="#home">Back to top ↑</a>
   </div>
 
   <script>
+    /* =======================================================
+       فتح وقفل المينيو في الموبايل
+    ======================================================== */
     const menuBtn = document.getElementById('menuBtn');
     const navLinks = document.getElementById('navLinks');
 
@@ -1667,6 +1892,9 @@
       link.addEventListener('click', () => navLinks.classList.remove('open'));
     });
 
+    /* =======================================================
+       تفعيل اللينك الحالي في الـ Navbar أثناء الاسكرول
+    ======================================================== */
     const sections = document.querySelectorAll('main section[id]');
     const navAnchors = document.querySelectorAll('.nav-links a');
 
@@ -1690,6 +1918,9 @@
     window.addEventListener('scroll', setActiveLink);
     window.addEventListener('load', setActiveLink);
 
+    /* =======================================================
+       أنيميشن ظهور العناصر أثناء النزول
+    ======================================================== */
     const fadeItems = document.querySelectorAll('.fade-up');
 
     const fadeObserver = new IntersectionObserver((entries) => {
@@ -1702,6 +1933,9 @@
 
     fadeItems.forEach(item => fadeObserver.observe(item));
 
+    /* =======================================================
+       Typewriter effect في الـ Hero
+    ======================================================== */
     const typedText = document.getElementById('typedText');
     const roles = ['Data Engineer', 'ETL Developer', 'PySpark Developer'];
 
@@ -1736,6 +1970,9 @@
 
     typeEffect();
 
+    /* =======================================================
+       التحكم في الـ Theme وحفظه في localStorage
+    ======================================================== */
     const themeToggle = document.getElementById('themeToggle');
     const themeToggleMobile = document.getElementById('themeToggleMobile');
     const themeLabel = document.getElementById('themeLabel');
@@ -1770,6 +2007,9 @@
       });
     }
 
+    /* =======================================================
+       سلايدر المشاريع
+    ======================================================== */
     const sliders = document.querySelectorAll('[data-slider]');
 
     sliders.forEach((slider) => {
@@ -1782,6 +2022,7 @@
       let currentIndex = 0;
       let interval;
 
+      /* إنشاء النقاط أسفل السلايدر */
       slides.forEach((_, index) => {
         const dot = document.createElement('button');
         dot.classList.add('slider-dot');
@@ -1824,6 +2065,7 @@
         startAutoSlide();
       }
 
+      /* لو المشروع فيه صورة واحدة فقط نخفي الأسهم */
       if (slides.length <= 1) {
         prevBtn.style.display = 'none';
         nextBtn.style.display = 'none';
@@ -1839,6 +2081,7 @@
         restartAutoSlide();
       });
 
+      /* نوقف الأوتو سلايد لما الماوس يقف على السلايدر */
       slider.addEventListener('mouseenter', () => clearInterval(interval));
       slider.addEventListener('mouseleave', () => {
         if (slides.length > 1) startAutoSlide();
