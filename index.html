@@ -1541,7 +1541,61 @@
 
         <div class="projects-grid">
 
+
+
           <!-- project 1 -->
+          <article class="project-card">
+            <div class="project-slider" data-slider>
+              <button class="slider-btn prev" type="button">&#10094;</button>
+
+              <div class="project-slides">
+                <div class="project-slide"><img class="project-image" src="telecom_streem.png" alt="Project  Architecture"></div>
+                <div class="project-slide"><img class="project-image" src="photo.png" alt="Project 1 Dashboard"></div>
+              </div>
+
+              <button class="slider-btn next" type="button">&#10095;</button>
+              <div class="slider-dots"></div>
+            </div>
+
+            <div class="project-body">
+              <div class="project-index">01</div>
+              <h3 class="project-title">Predictive Telecom Streaming Lakehouse</h3>
+              <div class="project-subtitle">Real-Time Telecom Tower Monitoring Pipeline</div>
+
+              <p class="project-text">
+Built a real-time lakehouse pipeline that ingests streaming data from 4 Kafka topics simulating telecom tower metrics (system, radio, environment, network).
+ PySpark processes the stream across 3 layers stored in S3 as Iceberg tables, cataloged in AWS Glue, and queryable via Athena.
+ An Isolation Forest model detects anomalies live in the Gold layer, with instant Telegram alerts and Grafana dashboards for visualization              </p>
+
+              <div class="project-tags">
+                <span>Glue</span>
+                <span>Athena</span>
+                <span>kafka</span>
+                <span>Apache Iceberg</span>
+                <span>Isolation_Forest model</span>          
+                <span>S3</span>
+                <span>Grafana</span>
+                <span>Amazon IAM</span>
+                <span>Airflow</span>
+                <span>PySpark</span>
+                <span>Docker</span>
+              </div>
+
+              <div class="project-actions">
+                <a class="project-status" href="https://github.com/AhmedRefat1412/Predictive-Telecom-Streaming-Lakehouse" target="_blank">
+                  <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+                    <path d="M12 .5C5.65.5.5 5.65.5 12a11.5 11.5 0 0 0 7.86 10.92c.58.11.79-.25.79-.56 0-.28-.01-1.2-.02-2.18-3.2.7-3.88-1.36-3.88-1.36-.52-1.32-1.28-1.67-1.28-1.67-1.04-.71.08-.7.08-.7 1.15.08 1.76 1.18 1.76 1.18 1.02 1.75 2.68 1.24 3.33.95.1-.74.4-1.24.72-1.52-2.55-.29-5.24-1.27-5.24-5.68 0-1.26.45-2.3 1.18-3.11-.12-.29-.51-1.48.11-3.08 0 0 .97-.31 3.17 1.19a10.95 10.95 0 0 1 5.77 0c2.2-1.5 3.17-1.19 3.17-1.19.62 1.6.23 2.79.11 3.08.74.81 1.18 1.85 1.18 3.11 0 4.42-2.69 5.38-5.26 5.67.41.36.78 1.07.78 2.15 0 1.56-.01 2.81-.01 3.19 0 .31.21.68.8.56A11.5 11.5 0 0 0 23.5 12C23.5 5.65 18.35.5 12 .5Z"/>
+                  </svg>
+                  <span>View GitHub</span>
+                  <span class="repo-arrow">→</span>
+                </a>
+              </div>
+            </div>
+          </article>
+
+
+
+          <!-- project 2 -->
           <article class="project-card">
             <div class="project-slider" data-slider>
               <button class="slider-btn prev" type="button">&#10094;</button>
@@ -1558,7 +1612,7 @@
             </div>
 
             <div class="project-body">
-              <div class="project-index">01</div>
+              <div class="project-index">02</div>
               <h3 class="project-title">Financial Data Platform</h3>
               <div class="project-subtitle">Production-Ready Data Engineering Pipeline on AWS</div>
 
@@ -1594,7 +1648,7 @@
           </article>
 
 
-               <!-- project 2 -->
+               <!-- project 3 -->
           <article class="project-card">
             <div class="project-slider" data-slider>
               <button class="slider-btn prev" type="button">&#10094;</button>
@@ -1611,7 +1665,7 @@
             </div>
 
             <div class="project-body">
-              <div class="project-index">02</div>
+              <div class="project-index">03</div>
               <h3 class="project-title">NYC Smart Traffic Pipeline</h3>
               <div class="project-subtitle">End-to-End Batch & Streaming Data Pipeline</div>
 
@@ -1647,55 +1701,64 @@
             </div>
           </article>
 
-                    <!-- project 3 -->
+                     <!-- project 4 -->
 
-          <article class="project-card">
-            <div class="project-slider" data-slider>
-              <button class="slider-btn prev" type="button">&#10094;</button>
+<article class="project-card">
+  <div class="project-slider" data-slider>
+    <button class="slider-btn prev" type="button">&#10094;</button>
 
-              <div class="project-slides">
-                <div class="project-slide"><img class="project-image" src="project2-1.png" alt="Project 2 Architecture"></div>
-              </div>
+    <div class="project-slides">
+      <div class="project-slide"><img class="project-image" src="flights/Flight architecure.png" alt="Flight Platform Architecture"></div>
+      <div class="project-slide"><img class="project-image" src="flights/Dashboard(Grafana).png" alt="Grafana Dashboard"></div>
+      <div class="project-slide"><img class="project-image" src="" alt="flights/Flight Data warehouse.png"></div>
+      <div class="project-slide"><img class="project-image" src="flights/dag_run.png" alt="Airflow DAG"></div>
+    </div>
 
-              <button class="slider-btn next" type="button">&#10095;</button>
-              <div class="slider-dots"></div>
-            </div>
+    <button class="slider-btn next" type="button">&#10095;</button>
+    <div class="slider-dots"></div>
+  </div>
 
-            <div class="project-body">
-              <div class="project-index">03</div>
-              <h3 class="project-title">Flight & Airline Analytics Pipeline</h3>
-              <div class="project-subtitle">Batch & Real-Time Data Processing</div>
+  <div class="project-body">
+    <div class="project-index">04</div>
+    <h3 class="project-title">NYC Flight Delay Prediction Platform</h3>
+    <div class="project-subtitle">Real-Time & Batch Data Engineering + ML</div>
 
-              <p class="project-text">
-                This project designs and implements a scalable data platform for flight and airline analytics
-                using both batch and real-time processing across major New York airports, integrating flight, delay, airline, and weather data.
-              </p>
+    <p class="project-text">
+      Designed and built a scalable data platform that processes real-time and historical flight data to predict delays across NYC airports (JFK, LGA, EWR).
+      The system ingests live flight and weather data via APIs, streams it through Kafka, and applies PySpark Structured Streaming with an XGBoost model (72% accuracy) for real-time predictions.
+      In parallel, a batch pipeline uses Medallion Architecture (Bronze, Silver, Gold) to transform historical datasets, build a Galaxy Schema data warehouse in Snowflake, and deliver insights through Power BI dashboards.
+      The entire workflow is orchestrated using Apache Airflow with parallel task execution.
+    </p>
 
-              <div class="project-tags">
-                <span>Kafka</span>
-                <span>Snowflake</span>
-                <span>S3</span>
-                <span>Power BI</span>
-                <span>Grafana</span>
-                <span>Airflow</span>
-                <span>PySpark</span>
-                <span>Structured Streaming</span>
-                <span>Docker</span>
-              </div>
+    <div class="project-tags">
+      <span>Kafka</span>
+      <span>PySpark</span>
+      <span>Structured Streaming</span>
+      <span>XGBoost</span>
+      <span>Airflow</span>
+      <span>S3</span>
+      <span>Snowflake</span>
+      <span>TimescaleDB</span>
+      <span>Grafana</span>
+      <span>Power BI</span>
+      <span>Docker</span>
+    </div>
 
-              <div class="project-actions">
-                <a class="project-status" href="https://github.com/AhmedRefat1412/Flight-Airline-Analytics-Platform" target="_blank">
-                  <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
-                    <path d="M12 .5C5.65.5.5 5.65.5 12a11.5 11.5 0 0 0 7.86 10.92c.58.11.79-.25.79-.56 0-.28-.01-1.2-.02-2.18-3.2.7-3.88-1.36-3.88-1.36-.52-1.32-1.28-1.67-1.28-1.67-1.04-.71.08-.7.08-.7 1.15.08 1.76 1.18 1.76 1.18 1.02 1.75 2.68 1.24 3.33.95.1-.74.4-1.24.72-1.52-2.55-.29-5.24-1.27-5.24-5.68 0-1.26.45-2.3 1.18-3.11-.12-.29-.51-1.48.11-3.08 0 0 .97-.31 3.17 1.19a10.95 10.95 0 0 1 5.77 0c2.2-1.5 3.17-1.19 3.17-1.19.62 1.6.23 2.79.11 3.08.74.81 1.18 1.85 1.18 3.11 0 4.42-2.69 5.38-5.26 5.67.41.36.78 1.07.78 2.15 0 1.56-.01 2.81-.01 3.19 0 .31.21.68.8.56A11.5 11.5 0 0 0 23.5 12C23.5 5.65 18.35.5 12 .5Z"/>
-                  </svg>
-                  <span>View GitHub</span>
-                  <span class="repo-arrow">→</span>
-                </a>
-              </div>
-            </div>
-          </article>
+    <div class="project-actions">
+      <a class="project-status" href="https://github.com/AhmedRefat1412/Flight-Airline-Analytics-Platform" target="_blank">
+        <svg viewBox="0 0 24 24" fill="currentColor">
+          <path d="M12 .5C5.65.5.5 5.65.5 12a11.5 11.5 0 0 0 7.86 10.92c.58.11.79-.25.79-.56 0-.28-.01-1.2-.02-2.18-3.2.7-3.88-1.36-3.88-1.36-.52-1.32-1.28-1.67-1.28-1.67-1.04-.71.08-.7.08-.7 1.15.08 1.76 1.18 1.76 1.18 1.02 1.75 2.68 1.24 3.33.95.1-.74.4-1.24.72-1.52-2.55-.29-5.24-1.27-5.24-5.68 0-1.26.45-2.3 1.18-3.11-.12-.29-.51-1.48.11-3.08 0 0 .97-.31 3.17 1.19a10.95 10.95 0 0 1 5.77 0c2.2-1.5 3.17-1.19 3.17-1.19.62 1.6.23 2.79.11 3.08.74.81 1.18 1.85 1.18 3.11 0 4.42-2.69 5.38-5.26 5.67.41.36.78 1.07.78 2.15 0 1.56-.01 2.81-.01 3.19 0 .31.21.68.8.56A11.5 11.5 0 0 0 23.5 12C23.5 5.65 18.35.5 12 .5Z"/>
+        </svg>
+        <span>View GitHub</span>
+        <span class="repo-arrow">→</span>
+      </a>
+    </div>
+  </div>
+</article>
 
-                    <!-- project 4 -->
+         
+
+                    <!-- project 5 -->
 
           <article class="project-card">
             <div class="project-slider" data-slider>
@@ -1713,7 +1776,7 @@
             </div>
 
             <div class="project-body">
-              <div class="project-index">04</div>
+              <div class="project-index">05</div>
               <h3 class="project-title">E-commerce Data Engineering Pipeline</h3>
               <div class="project-subtitle">End-to-End Batch Pipeline</div>
 
